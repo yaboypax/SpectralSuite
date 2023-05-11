@@ -19,9 +19,8 @@
             fsiginR pvsanal   a2, 1024, 256, 1024, 1
             ftpsR pvshift fsiginR, kshift, klowest
             atpsR pvsynth   ftpsR
-            a1 = atpsL
-            a2 = atpsR
-    outs atpsL, atpsR
+            
+    outs atpsL,atpsR
     endin
 
 </CsInstruments>

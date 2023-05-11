@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+Builds/VisualStudio2019/SpectralSuite.sln
+Builds/VisualStudio2019/test.wav
