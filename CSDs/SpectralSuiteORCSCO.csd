@@ -1,10 +1,8 @@
 <CsoundSynthesizer>
 <CsOptions>
--n -d
+-d 
 </CsOptions>
 <CsInstruments>
-; Initialize the global variables. 
-
     0dbfs=1
     
         instr 1
@@ -25,7 +23,7 @@
 
 </CsInstruments>
 <CsScore>
-f0 z
-i1 0 z
+f 0 z
+i 1 0 z
 </CsScore>
 </CsoundSynthesizer>
