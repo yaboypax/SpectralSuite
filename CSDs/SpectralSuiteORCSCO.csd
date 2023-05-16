@@ -1,10 +1,12 @@
 <CsoundSynthesizer>
 <CsOptions>
--d 
+-d -n
 </CsOptions>
 <CsInstruments>
     0dbfs=1
-    
+    nchnls=2
+	nchnls_i=2
+	
         instr 1
         a1 inch 1
         a2 inch 2
