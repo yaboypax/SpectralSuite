@@ -2910,6 +2910,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\sincostable.h">
+      <Filter>SpectralSuite\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\MathConstants.h">
       <Filter>SpectralSuite\Source</Filter>
     </ClInclude>

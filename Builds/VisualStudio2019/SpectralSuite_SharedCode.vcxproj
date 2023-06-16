@@ -2314,6 +2314,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\sincostable.h"/>
     <ClInclude Include="..\..\Source\MathConstants.h"/>
     <ClInclude Include="..\..\Source\wpFFT.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>

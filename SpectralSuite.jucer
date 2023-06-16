@@ -7,6 +7,7 @@
               pluginCode="spcS">
   <MAINGROUP id="cywrgw" name="SpectralSuite">
     <GROUP id="{CF3DB14A-7BAF-58EF-506F-B4AB3CB79109}" name="Source">
+      <FILE id="OxvouM" name="sincostable.h" compile="0" resource="0" file="Source/sincostable.h"/>
       <FILE id="cdfRdG" name="MathConstants.h" compile="0" resource="0" file="Source/MathConstants.h"/>
       <FILE id="aiBX7N" name="wpFFT.cpp" compile="1" resource="0" file="Source/wpFFT.cpp"/>
       <FILE id="pDuxUs" name="wpFFT.h" compile="0" resource="0" file="Source/wpFFT.h"/>
