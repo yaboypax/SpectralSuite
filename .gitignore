@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 Builds/VisualStudio2019/SpectralSuite.sln
 Builds/VisualStudio2019/test.wav
+JuceLibraryCode/include_juce_dsp.cpp
+JuceLibraryCode/include_juce_dsp.mm
+JuceLibraryCode/JuceHeader.h
