@@ -110,6 +110,7 @@ void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
 {
     //drywet
     addAndMakeVisible(&fx1);
+    fx1.setLookAndFeel(&ssLookAndFeel);
     fx1.setSliderStyle(juce::Slider::RotaryVerticalDrag);
     fx1.setRange(0.0, 1.0, 0.01);
     fx1.setValue(0.5);
@@ -121,6 +122,7 @@ void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
 
     //scramble
     addChildComponent(&fx2);
+    fx2.setLookAndFeel(&ssLookAndFeel);
     fx2.setSliderStyle(juce::Slider::RotaryVerticalDrag);
     fx2.setRange(0.0, 1.0, 0.01);
     fx2.setSkewFactorFromMidPoint(0.10);
@@ -133,6 +135,7 @@ void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
 
     //smear
     addChildComponent(&fx3);
+    fx3.setLookAndFeel(&ssLookAndFeel);
     fx3.setSliderStyle(juce::Slider::RotaryVerticalDrag);
     fx3.setRange(0.0, 1.0, 0.01);
     fx3.setSkewFactorFromMidPoint(0.25);
@@ -145,6 +148,7 @@ void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
 
     //contrast
     addChildComponent(&fx4);
+    fx4.setLookAndFeel(&ssLookAndFeel);
     fx4.setSliderStyle(juce::Slider::RotaryVerticalDrag);
     fx4.setRange(0.0, 1.0, 0.01);
     fx4.setSkewFactor(0.5);
@@ -155,10 +159,10 @@ void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
     fx4.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
     fx4.setPopupDisplayEnabled(true, false, this);
 
-    fx1.setBounds(120, 150, getWidth() / 3, getHeight() / 3);
-    fx2.setBounds(250, 150, getWidth() / 3, getHeight() / 3);
-    fx3.setBounds(250, 150, getWidth() / 3, getHeight() / 3);
-    fx4.setBounds(250, 150, getWidth() / 3, getHeight() / 3);
+    fx1.setBounds(231, 119, 105, 105);
+    fx2.setBounds(380, 119, 105, 105);
+    fx3.setBounds(380, 119, 105, 105);
+    fx4.setBounds(380, 119, 105, 105);
 }
 
 void SpectralSuiteAudioProcessorEditor::layoutButtons()

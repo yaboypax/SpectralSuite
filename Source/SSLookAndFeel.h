@@ -9,13 +9,6 @@ class SSLookAndFeel : public LookAndFeel_V4
 {
 public:
 
-
-    Font loadCustomFont()
-    {
-        auto typeface = Typeface::createSystemTypefaceFor(Timmana::Timmana_Regular_ttf, Timmana::Timmana_Regular_ttfSize);
-        return Font(typeface);
-    }
-
 	void drawButtonBackground(Graphics& g, Button& button, const Colour& backgroundColour, bool shouldDrawButtonAsHighlighted, bool shouldDrawButtonAsDown) override
 	{
             auto cornerSize = 9.0f;
@@ -49,5 +42,51 @@ public:
                 Justification::centred, 2);
     }
 
+    void drawRotarySlider(Graphics& g, int x, int y, int width, int height, float sliderPos,
+        const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override
+    {
+        auto outline = slider.findColour(Slider::rotarySliderOutlineColourId);
+        auto fill = slider.findColour(Slider::rotarySliderFillColourId);
+
+        auto bounds = Rectangle<int>(x, y, width, height).toFloat().reduced(10);
+
+        auto radius = jmin(bounds.getWidth(), bounds.getHeight()) / 2.0f;
+        auto toAngle = rotaryStartAngle + sliderPos * (rotaryEndAngle - rotaryStartAngle);
+        auto lineW = jmin(8.0f, radius * 0.5f);
+        auto arcRadius = radius - lineW * 0.5f;
+
+        g.setColour(outline);
+        g.drawEllipse(bounds, 5);
+
+        if (slider.isEnabled())
+        {
+            Path valueArc;
+            valueArc.addCentredArc(bounds.getCentreX(),
+                bounds.getCentreY(),
+                arcRadius,
+                arcRadius,
+                0.0f,
+                rotaryStartAngle,
+                toAngle,
+                true);
+        }
+
+        float halfLineLength = 20.0f;
+
+        Point<float> midPoint(bounds.getCentreX() + arcRadius * std::cos(toAngle - MathConstants<float>::halfPi),
+            bounds.getCentreY() + arcRadius * std::sin(toAngle - MathConstants<float>::halfPi));
+        Point<float> lineStart(midPoint.x - halfLineLength * std::cos(toAngle - MathConstants<float>::halfPi),
+            midPoint.y - halfLineLength * std::sin(toAngle - MathConstants<float>::halfPi));
+        Point<float> lineEnd(midPoint.x + halfLineLength * std::cos(toAngle - MathConstants<float>::halfPi),
+            midPoint.y + halfLineLength * std::sin(toAngle - MathConstants<float>::halfPi));
+
+        g.drawLine(Line<float>(lineStart, lineEnd), lineW);
+    }
+
 private:
+    Font loadCustomFont()
+    {
+        auto typeface = Typeface::createSystemTypefaceFor(Timmana::Timmana_Regular_ttf, Timmana::Timmana_Regular_ttfSize);
+        return Font(typeface);
+    }
 };
