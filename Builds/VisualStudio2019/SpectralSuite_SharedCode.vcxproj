@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\FFTEffect.cpp" />
+    <ClCompile Include="..\..\Source\Resource\Timmana.cpp" />
     <ClCompile Include="..\..\Source\wpFFT.cpp" />
     <ClCompile Include="..\..\Source\PluginProcessor.cpp" />
     <ClCompile Include="..\..\Source\PluginEditor.cpp" />
@@ -2419,8 +2420,10 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\cplxd.h" />
     <ClInclude Include="..\..\Source\FFTEffect.h" />
+    <ClInclude Include="..\..\Source\Resource\Timmana.h" />
     <ClInclude Include="..\..\Source\sincostable.h" />
     <ClInclude Include="..\..\Source\MathConstants.h" />
+    <ClInclude Include="..\..\Source\SSLookAndFeel.h" />
     <ClInclude Include="..\..\Source\wpFFT.h" />
     <ClInclude Include="..\..\Source\PluginProcessor.h" />
     <ClInclude Include="..\..\Source\PluginEditor.h" />
@@ -3373,7 +3376,6 @@
     <ClInclude Include="..\..\..\JUCE\modules\juce_gui_extra\juce_gui_extra.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h" />
-    <ClInclude Include="SSLookAndFeel.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\JUCE\modules\juce_audio_devices\native\oboe\CMakeLists.txt" />

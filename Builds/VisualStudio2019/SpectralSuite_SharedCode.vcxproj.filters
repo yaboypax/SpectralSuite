@@ -2919,6 +2919,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Resource\Timmana.cpp">
+      <Filter>SpectralSuite\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\cplxd.h">
@@ -5789,7 +5792,10 @@
     <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
-    <ClInclude Include="SSLookAndFeel.h">
+    <ClInclude Include="..\..\Source\SSLookAndFeel.h">
+      <Filter>SpectralSuite\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Resource\Timmana.h">
       <Filter>SpectralSuite\Source</Filter>
     </ClInclude>
   </ItemGroup>
