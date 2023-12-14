@@ -1,0 +1,315 @@
+/*
+  ==============================================================================
+
+    This file contains the basic framework code for a JUCE plugin processor.
+
+  ==============================================================================
+*/
+
+#include "PluginProcessor.h"
+#include "PluginEditor.h"
+#include <iostream>
+
+
+//==============================================================================
+
+SpectralSuiteAudioProcessor::SpectralSuiteAudioProcessor() :    hasPreparedToPlay(false),
+                                                                apvts(*this, nullptr, "PARAMETERS", createParameterLayout()),
+#ifndef JucePlugin_PreferredChannelConfigurations
+      AudioProcessor (BusesProperties()
+                     #if ! JucePlugin_IsMidiEffect
+                      #if ! JucePlugin_IsSynth
+                       .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
+                      #endif
+                       .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
+                     #endif
+                       )
+#endif
+    
+{
+    apvts.addParameterListener("inputGain", this);
+    apvts.addParameterListener("outputGain", this);
+
+    apvts.addParameterListener("pitchShift", this);
+    apvts.addParameterListener("dryWet", this);
+
+    apvts.addParameterListener("scramblingWidth", this);
+    apvts.addParameterListener("smearingWidth", this);
+    apvts.addParameterListener("contrastValue", this);
+
+    apvts.addParameterListener("scrambleEnabled", this);
+    apvts.addParameterListener("smearEnabled", this);
+    apvts.addParameterListener("contrastEnabled", this);
+}
+
+SpectralSuiteAudioProcessor::~SpectralSuiteAudioProcessor()
+{
+    apvts.removeParameterListener("inputGain", this);
+    apvts.removeParameterListener("outputGain", this);
+
+    apvts.removeParameterListener("pitchShift", this);
+    apvts.removeParameterListener("dryWet", this);
+
+    apvts.removeParameterListener("scramblingWidth", this);
+    apvts.removeParameterListener("smearingWidth", this);
+    apvts.removeParameterListener("contrastValue", this);
+
+    apvts.removeParameterListener("scrambleEnabled", this);
+    apvts.removeParameterListener("smearEnabled", this);
+    apvts.removeParameterListener("contrastEnabled", this);
+};
+
+//==============================================================================
+const juce::String SpectralSuiteAudioProcessor::getName() const
+{
+    return JucePlugin_Name;
+}
+
+bool SpectralSuiteAudioProcessor::acceptsMidi() const
+{
+   #if JucePlugin_WantsMidiInput
+    return true;
+   #else
+    return false;
+   #endif
+}
+
+bool SpectralSuiteAudioProcessor::producesMidi() const
+{
+   #if JucePlugin_ProducesMidiOutput
+    return true;
+   #else
+    return false;
+   #endif
+}
+
+bool SpectralSuiteAudioProcessor::isMidiEffect() const
+{
+   #if JucePlugin_IsMidiEffect
+    return true;
+   #else
+    return false;
+   #endif
+}
+
+double SpectralSuiteAudioProcessor::getTailLengthSeconds() const
+{
+    return 0.0;
+}
+
+int SpectralSuiteAudioProcessor::getNumPrograms()
+{
+    return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
+                // so this should be at least 1, even if you're not really implementing programs.
+}
+
+int SpectralSuiteAudioProcessor::getCurrentProgram()
+{
+    return 0;
+}
+
+void SpectralSuiteAudioProcessor::setCurrentProgram (int index)
+{
+}
+
+const juce::String SpectralSuiteAudioProcessor::getProgramName (int index)
+{
+    return {};
+}
+
+void SpectralSuiteAudioProcessor::changeProgramName (int index, const juce::String& newName)
+{
+}
+
+//==============================================================================
+
+
+
+void SpectralSuiteAudioProcessor::prepareToPlay(double sampleRate, int samplesPerBlock)
+{
+    spec.sampleRate = sampleRate;
+    spec.maximumBlockSize = samplesPerBlock;
+    spec.numChannels = getTotalNumOutputChannels();
+
+    dryWet.prepare(spec);
+    dryWet.setMixingRule(juce::dsp::DryWetMixingRule::balanced);
+    dryWet.setWetMixProportion(0.5);
+
+    fftEffect[0].setFxMode(FxMode::scramble);
+    fftEffect[1].setFxMode(FxMode::scramble);
+}   
+
+void SpectralSuiteAudioProcessor::releaseResources()
+{
+
+}
+
+#ifndef JucePlugin_PreferredChannelConfigurations
+bool SpectralSuiteAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
+{
+  #if JucePlugin_IsMidiEffect
+    juce::ignoreUnused (layouts);
+    return true;
+  #else
+    if (layouts.getMainOutputChannelSet() != juce::AudioChannelSet::mono()
+     && layouts.getMainOutputChannelSet() != juce::AudioChannelSet::stereo())
+        return false;
+
+   #if ! JucePlugin_IsSynth
+    if (layouts.getMainOutputChannelSet() != layouts.getMainInputChannelSet())
+        return false;
+   #endif
+
+    return true;
+  #endif
+}
+#endif
+
+void SpectralSuiteAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
+{
+    int fftSize = FFT_LEN;
+    int blockSize = fftSize / 2;
+
+    juce::AudioBuffer<float> dryBuffer(buffer.getNumChannels(), buffer.getNumSamples());
+
+    //input gain
+    buffer.applyGain(inputGain);
+
+    for (int channel = 0; channel < buffer.getNumChannels(); ++channel)
+    {
+        dryBuffer.copyFrom(channel, 0, buffer, channel, 0, buffer.getNumSamples());
+
+        for (int i = 0; i < buffer.getNumSamples(); ++i)
+        {
+            double sample = buffer.getSample(channel, i);
+            double output = fftEffect[channel].process(sample);
+            buffer.setSample(channel, i, output);
+        }
+    }
+
+    // dry wet
+    dryWet.pushDrySamples(dryBuffer);
+    dryWet.mixWetSamples(buffer);
+    dryWet.setWetMixProportion(wetCoefficient);
+
+    // output gain
+    buffer.applyGain(outputGain);
+}
+
+
+
+
+
+//==============================================================================
+bool SpectralSuiteAudioProcessor::hasEditor() const
+{
+    return true;
+}
+
+juce::AudioProcessorEditor* SpectralSuiteAudioProcessor::createEditor()
+{
+    return new SpectralSuiteAudioProcessorEditor (*this);
+}
+
+//==============================================================================
+void SpectralSuiteAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
+{
+    // You should use this method to store your parameters in the memory block.
+    // You could do that either as raw data, or use the XML or ValueTree classes
+    // as intermediaries to make it easy to save and load complex data.
+}
+
+void SpectralSuiteAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
+{
+    // You should use this method to restore your parameters from this memory block,
+    // whose contents will have been created by the getStateInformation() call.
+}
+
+//==============================================================================
+// This creates new instances of the plugin..
+juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
+{
+    return new SpectralSuiteAudioProcessor();
+}
+
+juce::AudioProcessorValueTreeState::ParameterLayout SpectralSuiteAudioProcessor::createParameterLayout()
+{
+    std::vector<std::unique_ptr<juce::RangedAudioParameter>> params;
+
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("inputGain", "Input Gain", 0.0f, 1.0f, 0.8f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("outputGain", "Output Gain", 0.0f, 1.0f, 0.8f));
+
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("pitchShift", "Pitch Shift", -24.0f, 24.0f, 0.0f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("dryWet", "Dry/Wet", 0.0f, 1.0f, 0.5f));
+
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("scramblingWidth", "Width", 0.0f, 1.0f, 0.2f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("smearingWidth", "Width", 0.0f, 1.0f, 0.2f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("contrastValue", "Raise", 0.0f, 1.0f, 0.2f));
+
+    params.push_back(std::make_unique<juce::AudioParameterBool>("scrambleEnabled", "Scramble On", true));
+    params.push_back(std::make_unique<juce::AudioParameterBool>("smearEnabled", "Smear On", false));
+    params.push_back(std::make_unique<juce::AudioParameterBool>("contrastEnabled", "Contrast On", false));
+
+    return { params.begin(), params.end() };
+}
+
+void SpectralSuiteAudioProcessor::parameterChanged(const juce::String& parameterID, float newValue)
+{
+    if (parameterID == "inputGain")
+    {
+        inputGain = newValue;
+    }
+
+    if (parameterID == "outputGain")
+    {
+        outputGain = newValue;
+    }
+
+    if (parameterID == "dryWet")
+    {
+        wetCoefficient = newValue;
+    }
+
+    if (parameterID == "scramblingWidth")
+    {
+        fftEffect[0].setFxValue(newValue);
+        fftEffect[1].setFxValue(newValue);
+    }
+
+    if (parameterID == "smearingWidth")
+    {
+        fftEffect[0].setFxValue(newValue);
+        fftEffect[1].setFxValue(newValue);
+    }
+
+    if (parameterID == "contrastValue")
+    {
+        fftEffect[0].setFxValue(newValue);
+        fftEffect[1].setFxValue(newValue);
+    }
+
+    if (parameterID == "scrambleEnabled" && newValue == 1.0f)
+    {
+        fftEffect[0].setFxMode(FxMode::scramble);
+        fftEffect[1].setFxMode(FxMode::scramble);
+    }
+
+    if (parameterID == "smearEnabled" && newValue == 1.0f)
+    {
+        fftEffect[0].setFxMode(FxMode::smear);
+        fftEffect[1].setFxMode(FxMode::smear);
+    }
+
+    if (parameterID == "contrastEnabled" && newValue == 1.0f)
+    {
+        fftEffect[0].setFxMode(FxMode::contrast);
+        fftEffect[1].setFxMode(FxMode::contrast);
+    }
+
+    if (parameterID == "pitchShift")
+    {
+        fftEffect[0].setPitchShift(newValue);
+        fftEffect[1].setPitchShift(newValue);
+    }
+}
+
