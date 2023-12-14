@@ -31,21 +31,21 @@ public:
 
     void drawButtonText(Graphics& g, TextButton& button, bool, bool) override
     {
-        Font font = loadCustomFont();
+        Font font = loadCustomFont().withHeight(32.f);
         g.setFont(font);
         g.setColour(Colours::black);
 
-        const int yIndent = jmin(4, button.proportionOfHeight(0.3f));
+        const int yIndent = jmin(4, button.proportionOfHeight(2.0f));
         const int cornerSize = jmin(button.getHeight(), button.getWidth()) / 2;
 
-        const int fontHeight = roundToInt(font.getHeight() * 0.6f);
-        const int leftIndent = jmin(fontHeight, 2 + cornerSize / (button.isConnectedOnLeft() ? 4 : 2));
-        const int rightIndent = jmin(fontHeight, 2 + cornerSize / (button.isConnectedOnRight() ? 4 : 2));
+        const int fontHeight = roundToInt(font.getHeight());
+        const int leftIndent = jmin(fontHeight, cornerSize / (button.isConnectedOnLeft() ? 4 : 2));
+        const int rightIndent = jmin(fontHeight, cornerSize / (button.isConnectedOnRight() ? 4 : 2));
         const int textWidth = button.getWidth() - leftIndent - rightIndent;
 
         if (textWidth > 0)
             g.drawFittedText(button.getButtonText(),
-                leftIndent, yIndent, textWidth, button.getHeight() - yIndent * 2,
+                leftIndent, yIndent + 5, textWidth, button.getHeight() - yIndent * 2,
                 Justification::centred, 2);
     }
 
