@@ -1,10 +1,3 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
@@ -72,8 +65,7 @@ void SpectralSuiteAudioProcessorEditor::paint(juce::Graphics& g)
  }
 
 void SpectralSuiteAudioProcessorEditor::resized()
-{   
-    setSize(563, 287);
+{    
 
     layoutGainSliders();
     layoutFxSliders();
@@ -174,30 +166,30 @@ void SpectralSuiteAudioProcessorEditor::layoutButtons()
     addAndMakeVisible(&scrambleButton);
     scrambleButton.setRadioGroupId(1);
     scrambleButton.setClickingTogglesState(true);
-    scrambleButton.addListener(this);
-    scrambleButton.setButtonText("Scramble");
-    scrambleButton.setColour(juce::TextButton::textColourOnId, juce::Colours::navajowhite);
-    scrambleButton.setColour(juce::TextButton::textColourOffId, juce::Colours::navajowhite.withAlpha(0.3f));
+    scrambleButton.setLookAndFeel(&ssLookAndFeel);
+    scrambleButton.setButtonText("scramble");
+    scrambleButton.setColour(juce::TextButton::buttonColourId, scrambleColor);
+    scrambleButton.setColour(juce::TextButton::buttonOnColourId, scrambleColor);
 
     addAndMakeVisible(&smearButton);
     smearButton.setRadioGroupId(1);
     smearButton.setClickingTogglesState(true);
-    smearButton.addListener(this);
-    smearButton.setButtonText("Smear");
-    smearButton.setColour(juce::TextButton::textColourOnId, juce::Colours::pink);
-    smearButton.setColour(juce::TextButton::textColourOffId, juce::Colours::pink.withAlpha(0.3f));
+    smearButton.setLookAndFeel(&ssLookAndFeel);
+    smearButton.setButtonText("smear");
+    smearButton.setColour(juce::TextButton::buttonColourId, smearColor);
+    smearButton.setColour(juce::TextButton::buttonOnColourId, smearColor);
 
     addAndMakeVisible(&contrastButton);
     contrastButton.setRadioGroupId(1);
     contrastButton.setClickingTogglesState(true);
-    contrastButton.addListener(this);
-    contrastButton.setButtonText("Contrast");
-    contrastButton.setColour(juce::TextButton::textColourOnId, juce::Colours::green);
-    contrastButton.setColour(juce::TextButton::textColourOffId, juce::Colours::green.withAlpha(0.3f));
+    contrastButton.setLookAndFeel(&ssLookAndFeel);
+    contrastButton.setButtonText("contrast");
+    contrastButton.setColour(juce::TextButton::buttonColourId, contrastColor);
+    contrastButton.setColour(juce::TextButton::buttonOnColourId, contrastColor);
 
-    scrambleButton.setBounds(150, 100, 75, 35);
-    smearButton.setBounds(225, 100, 75, 35);
-    contrastButton.setBounds(300, 100, 75, 35);
+    scrambleButton.setBounds(216, 44, 94, 45);
+    smearButton.setBounds(316, 44, 94, 45);
+    contrastButton.setBounds(421, 44, 94, 45);
 }
 
 void SpectralSuiteAudioProcessorEditor::buttonClicked(juce::Button* button)
@@ -234,4 +226,8 @@ void SpectralSuiteAudioProcessorEditor::addAttachments()
     scrambleButtonAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(processor.apvts, "scrambleEnabled", scrambleButton);
     smearButtonAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(processor.apvts, "smearEnabled", smearButton);
     contrastButtonAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(processor.apvts, "contrastEnabled", contrastButton);
+
+    scrambleButton.addListener(this);
+    smearButton.addListener(this);
+    contrastButton.addListener(this);
 }

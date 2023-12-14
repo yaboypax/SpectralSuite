@@ -34,6 +34,7 @@ public:
 
 private:
     SpectralSuiteAudioProcessor& processor;
+    SSLookAndFeel ssLookAndFeel;
     
     FxMode fxMode = FxMode::scramble;
 
