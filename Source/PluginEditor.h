@@ -24,12 +24,16 @@ public:
     void paint (juce::Graphics&) override;
     void resized() override;
 
+    void displayText(juce::Graphics& g);
+
     void layoutGainSliders();
     void layoutFxSliders();
     void layoutButtons();
     
     void buttonClicked(juce::Button* button) override;
+
     void sliderValueChanged(juce::Slider* slider) override;
+    void sliderDragEnded(juce::Slider* slider) override;
 
     void addAttachments();
     
@@ -56,7 +60,7 @@ private:
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> contrastValueAttachment;
 
     juce::Slider fx1, fx2, fx3, fx4;
-    juce::String dryWetText, effectText, pitchText;
+    juce::String dryWetText, effectText, pitchText, inText, outText;
 
     juce::TextButton smearButton, scrambleButton, contrastButton;
 

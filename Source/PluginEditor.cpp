@@ -33,6 +33,11 @@ SpectralSuiteAudioProcessorEditor::~SpectralSuiteAudioProcessorEditor()
     fx2.removeListener(this);
     fx3.removeListener(this);
     fx4.removeListener(this);
+
+
+    inputGain.removeListener(this);
+    outputGain.removeListener(this);
+    pitchShift.removeListener(this);
 }
 
 
@@ -74,10 +79,29 @@ void SpectralSuiteAudioProcessorEditor::paint(juce::Graphics& g)
     g.fillRoundedRectangle(bounds.toFloat(), 23);
 
 
+    displayText(g);
+
+    bounds.reduce(5, 5);
+    g.setFont(40.f);
+    g.drawText("SPECTRAL SUITE | YA BOY PAX", bounds, juce::Justification::topLeft);
+ }
+
+void SpectralSuiteAudioProcessorEditor::resized()
+{    
+
+    layoutGainSliders();
+    layoutFxSliders();
+    layoutButtons();
+   
+}
+
+void SpectralSuiteAudioProcessorEditor::displayText(juce::Graphics& g)
+{
     Font font = ssLookAndFeel.loadCustomFont().withHeight(24.0f);
     g.setFont(font);
     g.setColour(juce::Colours::black);
 
+    //fx knobs
     if (fx1.isMouseOverOrDragging())
     {
         g.drawText(dryWetText, fx1.getX(), fx1.getY() + 5, fx1.getWidth(), fx1.getHeight(), juce::Justification::centred);
@@ -95,15 +119,39 @@ void SpectralSuiteAudioProcessorEditor::paint(juce::Graphics& g)
     {
         g.drawText("effect", fx2.getX(), fx2.getY() + 5, fx2.getWidth(), fx2.getHeight(), juce::Justification::centred);
     }
- }
 
-void SpectralSuiteAudioProcessorEditor::resized()
-{    
+    //in out sliders
+    auto inOutYMargin = 30;
+    auto inOutXMargin = 3;
+    auto scalar = 1.2f;
+    if (inputGain.isMouseOverOrDragging())
+    {
+        g.drawText(inText, inputGain.getX() - inOutXMargin, inputGain.getY() + inOutYMargin, inputGain.getWidth() * scalar, inputGain.getHeight(), juce::Justification::centredBottom);
+    }
+    else
+    {
+        g.drawText("in", inputGain.getX() - inOutXMargin, inputGain.getY() + inOutYMargin, inputGain.getWidth() * scalar, inputGain.getHeight(), juce::Justification::centredBottom);
+    }
 
-    layoutGainSliders();
-    layoutFxSliders();
-    layoutButtons();
-   
+    if (outputGain.isMouseOverOrDragging())
+    {
+        g.drawText(outText, outputGain.getX() - inOutXMargin, outputGain.getY() + inOutYMargin, outputGain.getWidth() * scalar, outputGain.getHeight(), juce::Justification::centredBottom);
+    }
+    else
+    {
+        g.drawText("out", outputGain.getX() - inOutXMargin, outputGain.getY() + inOutYMargin, outputGain.getWidth() * scalar, outputGain.getHeight(), juce::Justification::centredBottom);
+    }
+
+    //pitch slider
+    auto pitchTextMargin = inOutYMargin * 2;
+    if (pitchShift.isMouseOverOrDragging())
+    {
+        g.drawText(pitchText, pitchShift.getX() - pitchTextMargin, pitchShift.getY(), pitchShift.getWidth(), pitchShift.getHeight() * scalar, juce::Justification::centredLeft);
+    }
+    else
+    {
+        g.drawText("pitch", pitchShift.getX() - pitchTextMargin, pitchShift.getY(), pitchShift.getWidth(), pitchShift.getHeight() * scalar, juce::Justification::centredLeft);
+    }
 }
 
 void SpectralSuiteAudioProcessorEditor::layoutGainSliders()
@@ -137,9 +185,9 @@ void SpectralSuiteAudioProcessorEditor::layoutGainSliders()
 
     addAndMakeVisible(&pitchShift);
 
-    inputGain.setBounds(40, 30, 20, getHeight() - 60);
-    outputGain.setBounds(80, 30, 20, getHeight() - 60);
-    pitchShift.setBounds(254 - margins::xMargin, 267 - margins::yMargin, 287, 20);
+    inputGain.setBounds(90 - margins::xMargin, 60 - margins::yMargin, 20, 185);
+    outputGain.setBounds(150 - margins::xMargin, 60 - margins::yMargin, 20, 185);
+    pitchShift.setBounds(254 - margins::xMargin, 251 - margins::yMargin, 287, 20);
 }
 
 void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
@@ -262,6 +310,10 @@ void SpectralSuiteAudioProcessorEditor::addAttachments()
     smearButtonAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(processor.apvts, "smearEnabled", smearButton);
     contrastButtonAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(processor.apvts, "contrastEnabled", contrastButton);
 
+    inputGain.addListener(this);
+    outputGain.addListener(this);
+    pitchShift.addListener(this);
+
     scrambleButton.addListener(this);
     smearButton.addListener(this);
     contrastButton.addListener(this);
@@ -283,6 +335,45 @@ void SpectralSuiteAudioProcessorEditor::sliderValueChanged(juce::Slider* slider)
     if (slider == &fx2 || slider == &fx3 || slider == &fx4)
     {
         effectText = juce::String(slider->getValue());
+        repaint();
+    }
+
+    if (slider == &inputGain)
+    {
+        inText = juce::String(slider->getValue());
+        repaint();
+    }
+
+    if (slider == &outputGain)
+    {
+        outText = juce::String(slider->getValue());
+        repaint();
+    }
+
+    if (slider == &pitchShift)
+    {
+        pitchText = juce::String(slider->getValue());
+        repaint();
+    }
+}
+
+void SpectralSuiteAudioProcessorEditor::sliderDragEnded(juce::Slider* slider)
+{
+    if (slider == &inputGain)
+    {
+        inText = "in";
+        repaint();
+    }
+
+    if (slider == &outputGain)
+    {
+        outText = "out";
+        repaint();
+    }
+
+    if (slider == &pitchShift)
+    {
+        pitchText = "pitch";
         repaint();
     }
 }
