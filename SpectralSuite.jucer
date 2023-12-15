@@ -21,10 +21,14 @@
       <FILE id="T7MXCU" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
       <FILE id="kCswEg" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="Ee6ZKD" name="SSLookAndFeel.h" compile="0" resource="0" file="Source/SSLookAndFeel.h"/>
     </GROUP>
-    <FILE id="Sho6Gi" name="csound.hpp" compile="0" resource="0" file="../../../../../Program Files/Csound6_x64/include/csound/csound.hpp"/>
-    <FILE id="M2ljNk" name="OpcodeBase.hpp" compile="0" resource="0" file="../../../../../Program Files/Csound6_x64/include/csound/OpcodeBase.hpp"/>
-    <FILE id="qMZofg" name="fftw3.h" compile="0" resource="0" file="FFT/fftw3.h"/>
+    <GROUP id="{06A9C97F-81EA-7E21-9EF2-99FFFBFDF2D2}" name="Resource">
+      <FILE id="GeOFC9" name="Timmana Regular.ttf" compile="0" resource="1"
+            file="Source/Resource/Timmana Regular.ttf"/>
+      <FILE id="kwkarF" name="Timmana.cpp" compile="1" resource="0" file="Source/Resource/Timmana.cpp"/>
+      <FILE id="Ly5Fck" name="Timmana.h" compile="0" resource="0" file="Source/Resource/Timmana.h"/>
+    </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"
                JUCE_ASIO="1"/>
@@ -53,7 +57,7 @@
         <MODULEPATH id="juce_dsp" path="../JUCE/modules"/>
       </MODULEPATHS>
     </VS2019>
-    <VS2022 targetFolder="Builds/VisualStudio2022" vstLegacyFolder="..\..\..\..\..\Program Files\Steinberg\VSTPlugins\Ya Boy Pax"
+    <VS2022 targetFolder="Builds/VisualStudio2022" vstLegacyFolder="C:\Program Files\VST_SDK\vst2sdk"
             externalLibraries="csound64.lib&#10;libcsound64.lib&#10;fftw3.lib"
             toolset="v142" windowsTargetPlatformVersion="10.0.19041.0">
       <CONFIGURATIONS>

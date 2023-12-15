@@ -5,6 +5,9 @@
     <Filter Include="SpectralSuite\Source">
       <UniqueIdentifier>{9DEBCD2B-F6F6-AF3E-FBA8-5AE6DB21E3F3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SpectralSuite\Resource">
+      <UniqueIdentifier>{9288822A-5976-D65D-FDC3-9A87B5B224BB}</UniqueIdentifier>
+    </Filter>
     <Filter Include="SpectralSuite">
       <UniqueIdentifier>{AB1AC0BB-7498-E8D2-BD32-BF9D4790C9E5}</UniqueIdentifier>
     </Filter>
@@ -612,6 +615,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\PluginEditor.cpp">
       <Filter>SpectralSuite\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Resource\Timmana.cpp">
+      <Filter>SpectralSuite\Resource</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -3001,6 +3007,9 @@
     <ClCompile Include="..\..\..\JUCE\modules\juce_gui_extra\juce_gui_extra.mm">
       <Filter>JUCE Modules\juce_gui_extra</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
@@ -3072,14 +3081,11 @@
     <ClInclude Include="..\..\Source\PluginEditor.h">
       <Filter>SpectralSuite\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Program Files\Csound6_x64\include\csound\csound.hpp">
-      <Filter>SpectralSuite</Filter>
+    <ClInclude Include="..\..\Source\SSLookAndFeel.h">
+      <Filter>SpectralSuite\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Program Files\Csound6_x64\include\csound\OpcodeBase.hpp">
-      <Filter>SpectralSuite</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\FFT\fftw3.h">
-      <Filter>SpectralSuite</Filter>
+    <ClInclude Include="..\..\Source\Resource\Timmana.h">
+      <Filter>SpectralSuite\Resource</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
@@ -5913,6 +5919,9 @@
     <ClInclude Include="..\..\..\JUCE\modules\juce_gui_extra\juce_gui_extra.h">
       <Filter>JUCE Modules\juce_gui_extra</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h">
+      <Filter>JUCE Library Code</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
@@ -5921,6 +5930,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resource\Timmana Regular.ttf">
+      <Filter>SpectralSuite\Resource</Filter>
+    </None>
     <None Include="..\..\..\JUCE\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\oboe</Filter>
     </None>
