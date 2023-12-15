@@ -83,6 +83,60 @@ public:
         g.drawLine(Line<float>(lineStart, lineEnd), lineW);
     }
 
+    void drawLinearSlider(Graphics& g, int x, int y, int width, int height,
+        float sliderPos,
+        float minSliderPos,
+        float maxSliderPos,
+        const Slider::SliderStyle style, Slider& slider)
+    {
+        auto trackWidth = jmin(6.0f, slider.isHorizontal() ? (float)height * 0.25f : (float)width * 0.25f);
+
+        Point<float> startPoint(slider.isHorizontal() ? (float)x : (float)x + (float)width * 0.5f,
+            slider.isHorizontal() ? (float)y + (float)height * 0.5f : (float)(height + y));
+
+        Point<float> endPoint(slider.isHorizontal() ? (float)(width + x) : startPoint.x,
+            slider.isHorizontal() ? startPoint.y : (float)y);
+
+        Path backgroundTrack;
+        backgroundTrack.startNewSubPath(startPoint);
+        backgroundTrack.lineTo(endPoint);
+        g.setColour(Colours::black);
+        g.strokePath(backgroundTrack, { trackWidth, PathStrokeType::curved, PathStrokeType::rounded });
+
+        Path valueTrack;
+        Point<float> minPoint, maxPoint, thumbPoint;
+
+        auto kx = slider.isHorizontal() ? sliderPos : ((float)x + (float)width * 0.5f);
+        auto ky = slider.isHorizontal() ? ((float)y + (float)height * 0.5f) : sliderPos;
+        
+        minPoint = startPoint;
+        maxPoint = { kx, ky };
+
+        auto thumbWidth = getSliderThumbRadius(slider);
+
+        valueTrack.startNewSubPath(minPoint);
+        g.setColour(Colours::black);
+        g.strokePath(valueTrack, { trackWidth, PathStrokeType::curved, PathStrokeType::rounded });
+
+        auto halfLineLength = 10.f;
+        Point<float> lineStart, lineEnd;
+
+        if (slider.isHorizontal())
+        {
+            
+            lineStart = {maxPoint.x, maxPoint.y - halfLineLength};
+            lineEnd = {maxPoint.x, maxPoint.y + halfLineLength};
+        }
+        else
+        {
+            lineStart = {maxPoint.x - halfLineLength, maxPoint.y};
+            lineEnd = { maxPoint.x + halfLineLength , maxPoint.y};
+        }
+
+        g.setColour(Colours::black);
+        g.drawLine(Line<float>(lineStart, lineEnd), 5);
+    }
+
     Font loadCustomFont()
     {
         auto typeface = Typeface::createSystemTypefaceFor(Timmana::Timmana_Regular_ttf, Timmana::Timmana_Regular_ttfSize);

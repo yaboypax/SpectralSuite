@@ -2,6 +2,11 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+namespace margins
+{
+    int xMargin = 36;
+    int yMargin = 14;
+}
 
 //==============================================================================
 SpectralSuiteAudioProcessorEditor::SpectralSuiteAudioProcessorEditor (SpectralSuiteAudioProcessor& p)
@@ -103,35 +108,38 @@ void SpectralSuiteAudioProcessorEditor::resized()
 
 void SpectralSuiteAudioProcessorEditor::layoutGainSliders()
 {
-    inputGain.setSliderStyle(juce::Slider::LinearBarVertical);
+    inputGain.setSliderStyle(juce::Slider::LinearVertical);
+    inputGain.setLookAndFeel(&ssLookAndFeel);
     inputGain.setRange(0.0f, 1.0f, 1.0f);
     inputGain.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
-    inputGain.setPopupDisplayEnabled(true, false, this);
+    inputGain.setPopupDisplayEnabled(false, false, this);
     inputGain.setTextValueSuffix(" inVolume");
     inputGain.setValue(0.8f);
 
     addAndMakeVisible(&inputGain);
 
-    outputGain.setSliderStyle(juce::Slider::LinearBarVertical);
+    outputGain.setSliderStyle(juce::Slider::LinearVertical);
+    outputGain.setLookAndFeel(&ssLookAndFeel);
     outputGain.setRange(0.0f, 1.0f, 1.0f);
     outputGain.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
-    outputGain.setPopupDisplayEnabled(true, false, this);
+    outputGain.setPopupDisplayEnabled(false, false, this);
     outputGain.setTextValueSuffix(" outVolume");
     outputGain.setValue(0.8f);
 
     addAndMakeVisible(&outputGain);
    
     pitchShift.setSliderStyle(juce::Slider::LinearHorizontal);
+    pitchShift.setLookAndFeel(&ssLookAndFeel);
     pitchShift.setRange(-24.0f, 24.0f, 0.0f);
     pitchShift.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
-    pitchShift.setPopupDisplayEnabled(true, false, this);
+    pitchShift.setPopupDisplayEnabled(false, false, this);
     pitchShift.setValue(1.0f);
 
     addAndMakeVisible(&pitchShift);
 
     inputGain.setBounds(40, 30, 20, getHeight() - 60);
     outputGain.setBounds(80, 30, 20, getHeight() - 60);
-    pitchShift.setBounds(120, 30, 120, 20);
+    pitchShift.setBounds(254 - margins::xMargin, 267 - margins::yMargin, 287, 20);
 }
 
 void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
