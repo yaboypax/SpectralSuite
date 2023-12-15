@@ -23,6 +23,11 @@ SpectralSuiteAudioProcessorEditor::~SpectralSuiteAudioProcessorEditor()
     scrambleButton.removeListener(this);
     smearButton.removeListener(this);
     contrastButton.removeListener(this);
+
+    fx1.removeListener(this);
+    fx2.removeListener(this);
+    fx3.removeListener(this);
+    fx4.removeListener(this);
 }
 
 
@@ -43,7 +48,7 @@ void SpectralSuiteAudioProcessorEditor::paint(juce::Graphics& g)
         fx4.setVisible(false);
 
         g.setColour(scrambleColor);
-        
+
     }
     else if (fxMode == FxMode::smear)
     {
@@ -62,6 +67,20 @@ void SpectralSuiteAudioProcessorEditor::paint(juce::Graphics& g)
         g.setColour(contrastColor);
     }
     g.fillRoundedRectangle(bounds.toFloat(), 23);
+
+
+    Font font = ssLookAndFeel.loadCustomFont().withHeight(24.0f);
+    g.setFont(font);
+    g.setColour(juce::Colours::black);
+
+    if (fx1.isMouseOverOrDragging())
+    {
+        g.drawText(dryWetText, fx1.getX(), fx1.getY() + 5, fx1.getWidth(), fx1.getHeight(), juce::Justification::centred);
+    }
+    else
+    {
+        g.drawText("dry|wet", fx1.getX(), fx1.getY() + 5, fx1.getWidth(), fx1.getHeight(), juce::Justification::centred);
+    }
  }
 
 void SpectralSuiteAudioProcessorEditor::resized()
@@ -115,10 +134,8 @@ void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
     fx1.setRange(0.0, 1.0, 0.01);
     fx1.setValue(0.5);
     fx1.setColour(juce::Slider::rotarySliderOutlineColourId, juce::Colours::black);
-    fx1.setColour(juce::Slider::rotarySliderFillColourId, juce::Colours::white);
-    fx1.setColour(juce::Slider::thumbColourId, juce::Colours::transparentWhite);
     fx1.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
-    fx1.setPopupDisplayEnabled(true, false, this);
+    fx1.setPopupDisplayEnabled(false, false, this);
 
     //scramble
     addChildComponent(&fx2);
@@ -128,10 +145,8 @@ void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
     fx2.setSkewFactorFromMidPoint(0.10);
     fx2.setValue(0.2);
     fx2.setColour(juce::Slider::rotarySliderOutlineColourId, juce::Colours::black);
-    fx2.setColour(juce::Slider::rotarySliderFillColourId, juce::Colours::navajowhite);
-    fx2.setColour(juce::Slider::thumbColourId, juce::Colours::transparentWhite);
     fx2.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
-    fx2.setPopupDisplayEnabled(true, false, this);
+    fx2.setPopupDisplayEnabled(false, false, this);
 
     //smear
     addChildComponent(&fx3);
@@ -141,10 +156,8 @@ void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
     fx3.setSkewFactorFromMidPoint(0.25);
     fx3.setValue(0.2);
     fx3.setColour(juce::Slider::rotarySliderOutlineColourId, juce::Colours::black);
-    fx3.setColour(juce::Slider::rotarySliderFillColourId, juce::Colours::pink);
-    fx3.setColour(juce::Slider::thumbColourId, juce::Colours::transparentWhite);
     fx3.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
-    fx3.setPopupDisplayEnabled(true, false, this);
+    fx3.setPopupDisplayEnabled(false, false, this);
 
     //contrast
     addChildComponent(&fx4);
@@ -154,10 +167,8 @@ void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
     fx4.setSkewFactor(0.5);
     fx4.setValue(0.2);
     fx4.setColour(juce::Slider::rotarySliderOutlineColourId, juce::Colours::black);
-    fx4.setColour(juce::Slider::rotarySliderFillColourId, juce::Colours::green);
-    fx4.setColour(juce::Slider::thumbColourId, juce::Colours::transparentWhite);
     fx4.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
-    fx4.setPopupDisplayEnabled(true, false, this);
+    fx4.setPopupDisplayEnabled(false, false, this);
 
     fx1.setBounds(231, 119, 105, 105);
     fx2.setBounds(380, 119, 105, 105);
@@ -234,4 +245,18 @@ void SpectralSuiteAudioProcessorEditor::addAttachments()
     scrambleButton.addListener(this);
     smearButton.addListener(this);
     contrastButton.addListener(this);
+
+    fx1.addListener(this);
+    fx2.addListener(this);
+    fx3.addListener(this);
+    fx4.addListener(this);
+}
+
+void SpectralSuiteAudioProcessorEditor::sliderValueChanged(juce::Slider* slider)
+{
+    if (slider == &fx1)
+    {
+            dryWetText = juce::String(slider->getValue());
+            repaint();
+    }
 }

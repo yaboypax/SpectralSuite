@@ -15,7 +15,7 @@
 //==============================================================================
 /**
 */
-class SpectralSuiteAudioProcessorEditor  : public juce::AudioProcessorEditor, public juce::Button::Listener
+class SpectralSuiteAudioProcessorEditor  : public juce::AudioProcessorEditor, public juce::Button::Listener, public juce::Slider::Listener
 { 
 public:
     SpectralSuiteAudioProcessorEditor (SpectralSuiteAudioProcessor&);
@@ -29,6 +29,8 @@ public:
     void layoutButtons();
     
     void buttonClicked(juce::Button* button) override;
+    void sliderValueChanged(juce::Slider* slider) override;
+
     void addAttachments();
     
 
@@ -54,6 +56,8 @@ private:
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> contrastValueAttachment;
 
     juce::Slider fx1, fx2, fx3, fx4;
+    juce::String dryWetText = "dry|wet";// , scrambleText, smearText, contrastText, pitchText;
+
     juce::TextButton smearButton, scrambleButton, contrastButton;
 
     std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> scrambleButtonAttachment;

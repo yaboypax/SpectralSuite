@@ -9,18 +9,18 @@ class SSLookAndFeel : public LookAndFeel_V4
 {
 public:
 
-	void drawButtonBackground(Graphics& g, Button& button, const Colour& backgroundColour, bool shouldDrawButtonAsHighlighted, bool shouldDrawButtonAsDown) override
-	{
-            auto cornerSize = 9.0f;
-            auto bounds = button.getLocalBounds();
-            g.setColour(juce::Colours::black);
-            g.fillRoundedRectangle(bounds.toFloat(), cornerSize);
-            bounds.reduce(5, 5);
+    void drawButtonBackground(Graphics& g, Button& button, const Colour& backgroundColour, bool shouldDrawButtonAsHighlighted, bool shouldDrawButtonAsDown) override
+    {
+        auto cornerSize = 9.0f;
+        auto bounds = button.getLocalBounds();
+        g.setColour(juce::Colours::black);
+        g.fillRoundedRectangle(bounds.toFloat(), cornerSize);
+        bounds.reduce(5, 5);
 
-            g.setColour(backgroundColour);
-            g.fillRoundedRectangle(bounds.toFloat(), cornerSize);
-        
-	}
+        g.setColour(backgroundColour);
+        g.fillRoundedRectangle(bounds.toFloat(), cornerSize);
+
+    }
 
     void drawButtonText(Graphics& g, TextButton& button, bool, bool) override
     {
@@ -71,7 +71,7 @@ public:
                 true);
         }
 
-        float halfLineLength = 20.0f;
+        float halfLineLength = 10.0f;
 
         Point<float> midPoint(bounds.getCentreX() + arcRadius * std::cos(toAngle - MathConstants<float>::halfPi),
             bounds.getCentreY() + arcRadius * std::sin(toAngle - MathConstants<float>::halfPi));
@@ -83,7 +83,6 @@ public:
         g.drawLine(Line<float>(lineStart, lineEnd), lineW);
     }
 
-private:
     Font loadCustomFont()
     {
         auto typeface = Typeface::createSystemTypefaceFor(Timmana::Timmana_Regular_ttf, Timmana::Timmana_Regular_ttfSize);
