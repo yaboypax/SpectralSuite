@@ -81,6 +81,15 @@ void SpectralSuiteAudioProcessorEditor::paint(juce::Graphics& g)
     {
         g.drawText("dry|wet", fx1.getX(), fx1.getY() + 5, fx1.getWidth(), fx1.getHeight(), juce::Justification::centred);
     }
+
+    if (fx2.isMouseOverOrDragging() || fx3.isMouseOverOrDragging() || fx4.isMouseOverOrDragging())
+    {
+        g.drawText(effectText, fx2.getX(), fx2.getY() + 5, fx2.getWidth(), fx2.getHeight(), juce::Justification::centred);
+    }
+    else
+    {
+        g.drawText("effect", fx2.getX(), fx2.getY() + 5, fx2.getWidth(), fx2.getHeight(), juce::Justification::centred);
+    }
  }
 
 void SpectralSuiteAudioProcessorEditor::resized()
@@ -212,16 +221,19 @@ void SpectralSuiteAudioProcessorEditor::buttonClicked(juce::Button* button)
     if (button == &scrambleButton)
     {
         fxMode = FxMode::scramble;
+        effectText = juce::String(fx2.getValue());
         repaint();
     }
     else if (button == &smearButton)
     {
         fxMode = FxMode::smear;
+        effectText = juce::String(fx3.getValue());
         repaint();
     }
     else if (button == &contrastButton)
     {
         fxMode = FxMode::contrast;
+        effectText = juce::String(fx4.getValue());
         repaint();
     }
 }
@@ -258,5 +270,11 @@ void SpectralSuiteAudioProcessorEditor::sliderValueChanged(juce::Slider* slider)
     {
             dryWetText = juce::String(slider->getValue());
             repaint();
+    }
+
+    if (slider == &fx2 || slider == &fx3 || slider == &fx4)
+    {
+        effectText = juce::String(slider->getValue());
+        repaint();
     }
 }

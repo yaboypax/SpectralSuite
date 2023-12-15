@@ -56,7 +56,7 @@ private:
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> contrastValueAttachment;
 
     juce::Slider fx1, fx2, fx3, fx4;
-    juce::String dryWetText = "dry|wet";// , scrambleText, smearText, contrastText, pitchText;
+    juce::String dryWetText, effectText, pitchText;
 
     juce::TextButton smearButton, scrambleButton, contrastButton;
 
