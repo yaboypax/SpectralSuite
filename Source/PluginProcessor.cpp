@@ -135,8 +135,21 @@ void SpectralSuiteAudioProcessor::prepareToPlay(double sampleRate, int samplesPe
     dryWet.setMixingRule(juce::dsp::DryWetMixingRule::balanced);
     dryWet.setWetMixProportion(0.5);
 
-    fftEffect[0].setFxMode(FxMode::scramble);
-    fftEffect[1].setFxMode(FxMode::scramble);
+    if (apvts.getParameter("scrambleEnabled")->getValue() == 1.f)
+    {
+        fftEffect[0].setFxMode(FxMode::scramble);
+        fftEffect[1].setFxMode(FxMode::scramble);
+    }
+    else if (apvts.getParameter("smearEnabled")->getValue() == 1.f)
+    {
+        fftEffect[0].setFxMode(FxMode::smear);
+        fftEffect[1].setFxMode(FxMode::smear);
+    }
+    else if (apvts.getParameter("contrastEnabled")->getValue() == 1.f)
+    {
+        fftEffect[0].setFxMode(FxMode::contrast);
+        fftEffect[1].setFxMode(FxMode::contrast);
+    }
 }   
 
 void SpectralSuiteAudioProcessor::releaseResources()
@@ -246,9 +259,9 @@ juce::AudioProcessorValueTreeState::ParameterLayout SpectralSuiteAudioProcessor:
     params.push_back(std::make_unique<juce::AudioParameterFloat>("smearingWidth", "Width", 0.0f, 1.0f, 0.2f));
     params.push_back(std::make_unique<juce::AudioParameterFloat>("contrastValue", "Raise", 0.0f, 1.0f, 0.2f));
 
-    params.push_back(std::make_unique<juce::AudioParameterBool>("scrambleEnabled", "Scramble On", true));
+    params.push_back(std::make_unique<juce::AudioParameterBool>("scrambleEnabled", "Scramble On", false));
     params.push_back(std::make_unique<juce::AudioParameterBool>("smearEnabled", "Smear On", false));
-    params.push_back(std::make_unique<juce::AudioParameterBool>("contrastEnabled", "Contrast On", false));
+    params.push_back(std::make_unique<juce::AudioParameterBool>("contrastEnabled", "Contrast On", true));
 
     return { params.begin(), params.end() };
 }

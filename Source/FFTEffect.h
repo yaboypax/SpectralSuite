@@ -65,7 +65,7 @@ private:
     SinCosTable<12> g_sincos_table;
     std::vector<double> newMagnitudes;
     PhaseVocoder phaseVocoder;
-    FxMode m_fxMode = FxMode::scramble;
+    FxMode m_fxMode;
 
     float m_scramblingWidth = 0.2f;
     float m_smearingWidth = 0.2f;

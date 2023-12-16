@@ -36,13 +36,14 @@ public:
     void sliderDragEnded(juce::Slider* slider) override;
 
     void addAttachments();
+    void loadFxMode();
     
 
 private:
     SpectralSuiteAudioProcessor& processor;
     SSLookAndFeel ssLookAndFeel;
     
-    FxMode fxMode = FxMode::scramble;
+    FxMode fxMode;
 
     juce::Slider inputGain;
     juce::Slider outputGain;

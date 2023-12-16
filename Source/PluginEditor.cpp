@@ -20,6 +20,7 @@ SpectralSuiteAudioProcessorEditor::SpectralSuiteAudioProcessorEditor (SpectralSu
     layoutButtons();
 
     addAttachments();
+    loadFxMode();
 
 }
 
@@ -287,34 +288,23 @@ void SpectralSuiteAudioProcessorEditor::buttonClicked(juce::Button* button)
     {
         fxMode = FxMode::scramble;
         effectText = juce::String(fx2.getValue());
-        repaint();
     }
     else if (button == &smearButton)
     {
         fxMode = FxMode::smear;
         effectText = juce::String(fx3.getValue());
-        repaint();
     }
     else if (button == &contrastButton)
     {
         fxMode = FxMode::contrast;
         effectText = juce::String(fx4.getValue());
-        repaint();
     }
+
+    repaint();
 }
 
 void SpectralSuiteAudioProcessorEditor::addAttachments()
 {
-    inputGainAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "inputGain", inputGain);
-    outputGainAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "outputGain", outputGain);
-
-    pitchShiftAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "pitchShift", pitchShift);
-    dryWetAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "dryWet", fx1);
-
-    scramblingWidthAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "scramblingWidth", fx2);
-    smearingWidthAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "smearingWidth", fx3);
-    contrastValueAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "contrastValue", fx4);
-
     scrambleButtonAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(processor.apvts, "scrambleEnabled", scrambleButton);
     smearButtonAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(processor.apvts, "smearEnabled", smearButton);
     contrastButtonAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(processor.apvts, "contrastEnabled", contrastButton);
@@ -331,14 +321,44 @@ void SpectralSuiteAudioProcessorEditor::addAttachments()
     fx2.addListener(this);
     fx3.addListener(this);
     fx4.addListener(this);
+
+    inputGainAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "inputGain", inputGain);
+    outputGainAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "outputGain", outputGain);
+
+    pitchShiftAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "pitchShift", pitchShift);
+    dryWetAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "dryWet", fx1);
+
+    scramblingWidthAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "scramblingWidth", fx2);
+    smearingWidthAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "smearingWidth", fx3);
+    contrastValueAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(processor.apvts, "contrastValue", fx4);
+}
+
+void SpectralSuiteAudioProcessorEditor::loadFxMode()
+{
+    if (processor.apvts.getParameter("scrambleEnabled")->getValue() == 1.f)
+    {
+        fxMode = FxMode::scramble;
+        effectText = juce::String(fx2.getValue());
+    }
+    else if (processor.apvts.getParameter("smearEnabled")->getValue() == 1.f)
+    {
+        fxMode = FxMode::smear;
+        effectText = juce::String(fx3.getValue());
+    }
+    else if (processor.apvts.getParameter("contrastEnabled")->getValue() == 1.f)
+    {
+        fxMode = FxMode::contrast;
+        effectText = juce::String(fx4.getValue());
+    }
+    repaint();
 }
 
 void SpectralSuiteAudioProcessorEditor::sliderValueChanged(juce::Slider* slider)
 {
     if (slider == &fx1)
     {
-            dryWetText = juce::String(slider->getValue());
-            repaint();
+        dryWetText = juce::String(slider->getValue());
+        repaint();
     }
 
     if (slider == &fx2 || slider == &fx3 || slider == &fx4)
