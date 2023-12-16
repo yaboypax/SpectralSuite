@@ -34,10 +34,19 @@ SpectralSuiteAudioProcessorEditor::~SpectralSuiteAudioProcessorEditor()
     fx3.removeListener(this);
     fx4.removeListener(this);
 
-
     inputGain.removeListener(this);
     outputGain.removeListener(this);
     pitchShift.removeListener(this);
+    
+
+    inputGainAttachment.release();
+    outputGainAttachment.release();
+    pitchShiftAttachment.release();
+    dryWetAttachment.release();
+
+    scramblingWidthAttachment.release();
+    smearingWidthAttachment.release();
+    contrastValueAttachment.release();
 }
 
 
