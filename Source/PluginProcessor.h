@@ -70,10 +70,9 @@ private:
 
     juce::CriticalSection fftDataCriticalSection;
 
-    float inputGain = 0.8f;
-    float outputGain = 0.8f;
-
-    float wetCoefficient = 0.5f;
+    float inputGain = 1.0f;
+    float outputGain = 1.0f;
+    float wetCoefficient = 1.0f;
 
     float scramblingWidth = 0.2f;
     float smearingWidth = 0.2f;

@@ -168,7 +168,7 @@ void SpectralSuiteAudioProcessorEditor::layoutGainSliders()
 {
     inputGain.setSliderStyle(juce::Slider::LinearVertical);
     inputGain.setLookAndFeel(&ssLookAndFeel);
-    inputGain.setRange(0.0f, 1.0f, 1.0f);
+    inputGain.setRange(0.0f, 1.5f, 1.0f);
     inputGain.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
     inputGain.setPopupDisplayEnabled(false, false, this);
     inputGain.setTextValueSuffix(" inVolume");
@@ -178,7 +178,7 @@ void SpectralSuiteAudioProcessorEditor::layoutGainSliders()
 
     outputGain.setSliderStyle(juce::Slider::LinearVertical);
     outputGain.setLookAndFeel(&ssLookAndFeel);
-    outputGain.setRange(0.0f, 1.0f, 1.0f);
+    outputGain.setRange(0.0f, 1.5f, 1.0f);
     outputGain.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
     outputGain.setPopupDisplayEnabled(false, false, this);
     outputGain.setTextValueSuffix(" outVolume");
@@ -207,7 +207,7 @@ void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
     fx1.setLookAndFeel(&ssLookAndFeel);
     fx1.setSliderStyle(juce::Slider::RotaryVerticalDrag);
     fx1.setRange(0.0, 1.0, 0.01);
-    fx1.setValue(0.5);
+    fx1.setValue(1.0);
     fx1.setColour(juce::Slider::rotarySliderOutlineColourId, juce::Colours::black);
     fx1.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
     fx1.setPopupDisplayEnabled(false, false, this);
