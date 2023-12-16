@@ -40,14 +40,14 @@ SpectralSuiteAudioProcessorEditor::~SpectralSuiteAudioProcessorEditor()
     pitchShift.removeListener(this);
     
 
-    inputGainAttachment.release();
-    outputGainAttachment.release();
-    pitchShiftAttachment.release();
-    dryWetAttachment.release();
+    inputGainAttachment.reset();
+    outputGainAttachment.reset();
+    pitchShiftAttachment.reset();
+    dryWetAttachment.reset();
 
-    scramblingWidthAttachment.release();
-    smearingWidthAttachment.release();
-    contrastValueAttachment.release();
+    scramblingWidthAttachment.reset();
+    smearingWidthAttachment.reset();
+    contrastValueAttachment.reset();
 }
 
 
