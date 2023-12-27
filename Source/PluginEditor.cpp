@@ -93,7 +93,7 @@ void SpectralSuiteAudioProcessorEditor::paint(juce::Graphics& g)
 
     bounds.reduce(5, 5);
     g.setFont(40.f);
-    g.drawText("SPECTRAL SUITE | YA BOY PAX", bounds, juce::Justification::topLeft);
+    g.drawText(" SPECTRAL SUITE | YA BOY PAX", bounds, juce::Justification::topLeft);
  }
 
 void SpectralSuiteAudioProcessorEditor::resized()
@@ -277,9 +277,37 @@ void SpectralSuiteAudioProcessorEditor::layoutButtons()
     contrastButton.setColour(juce::TextButton::buttonColourId, contrastColor);
     contrastButton.setColour(juce::TextButton::buttonOnColourId, contrastColor);
 
-    scrambleButton.setBounds(216, 44, 94, 45);
-    smearButton.setBounds(316, 44, 94, 45);
-    contrastButton.setBounds(421, 44, 94, 45);
+
+    int buttonY = 52;
+    scrambleButton.setBounds(216, buttonY, 94, 45);
+    smearButton.setBounds(316, buttonY, 94, 45);
+    contrastButton.setBounds(421, buttonY, 94, 45);
+
+
+    randomizeButton.setClickingTogglesState(false);
+    randomizeButton.setLookAndFeel(&ssLookAndFeel);
+    randomizeButton.setButtonText("randomize");
+
+    randomizeButton.setColour(juce::TextButton::buttonColourId, contrastColor);
+    
+    if (fxMode == FxMode::scramble)
+    {
+        randomizeButton.setColour(juce::TextButton::buttonColourId, scrambleColor);
+    }
+    else if (fxMode == FxMode::smear)
+    {
+        randomizeButton.setColour(juce::TextButton::buttonColourId, smearColor);
+    }
+    else if (fxMode == FxMode::contrast)
+    {
+        randomizeButton.setColour(juce::TextButton::buttonColourId, contrastColor);
+    }
+    auto x = 421;
+    auto y = 14;
+    auto height = 26;
+
+    randomizeButton.setBounds(x, y, 94, height);
+    addAndMakeVisible(&randomizeButton);
 }
 
 void SpectralSuiteAudioProcessorEditor::buttonClicked(juce::Button* button)
@@ -300,6 +328,7 @@ void SpectralSuiteAudioProcessorEditor::buttonClicked(juce::Button* button)
         effectText = juce::String(fx4.getValue());
     }
 
+    resized();
     repaint();
 }
 

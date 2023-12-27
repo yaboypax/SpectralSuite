@@ -64,6 +64,7 @@ private:
     juce::String dryWetText, effectText, pitchText, inText, outText;
 
     juce::TextButton smearButton, scrambleButton, contrastButton;
+    juce::TextButton randomizeButton;
 
     std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> scrambleButtonAttachment;
     std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> smearButtonAttachment;

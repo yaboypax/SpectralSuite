@@ -15,7 +15,7 @@ public:
         auto bounds = button.getLocalBounds();
         g.setColour(juce::Colours::black);
         g.fillRoundedRectangle(bounds.toFloat(), cornerSize);
-        bounds.reduce(5, 5);
+        bounds.reduce(2, 2);
 
         g.setColour(backgroundColour);
         g.fillRoundedRectangle(bounds.toFloat(), cornerSize);
