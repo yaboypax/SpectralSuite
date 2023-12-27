@@ -1,10 +1,4 @@
-/*
-  ==============================================================================
 
-    This file contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
 
 #pragma once
 
@@ -13,9 +7,7 @@
 #include "SSLookAndFeel.h"
 #include "RandomIcon.h"
 
-//==============================================================================
-/**
-*/
+
 class SpectralSuiteAudioProcessorEditor  : public juce::AudioProcessorEditor, public juce::Button::Listener, public juce::Slider::Listener
 { 
 public:

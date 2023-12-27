@@ -1,10 +1,3 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
@@ -99,8 +92,7 @@ double SpectralSuiteAudioProcessor::getTailLengthSeconds() const
 
 int SpectralSuiteAudioProcessor::getNumPrograms()
 {
-    return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
-                // so this should be at least 1, even if you're not really implementing programs.
+    return 1;  
 }
 
 int SpectralSuiteAudioProcessor::getCurrentProgram()
