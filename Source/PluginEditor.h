@@ -11,6 +11,7 @@
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
 #include "SSLookAndFeel.h"
+#include "RandomIcon.h"
 
 //==============================================================================
 /**
@@ -64,7 +65,7 @@ private:
     juce::String dryWetText, effectText, pitchText, inText, outText;
 
     juce::TextButton smearButton, scrambleButton, contrastButton;
-    juce::TextButton randomizeButton;
+    RandomIcon randomizeButton;
 
     std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> scrambleButtonAttachment;
     std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> smearButtonAttachment;

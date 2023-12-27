@@ -139,7 +139,7 @@ public:
 
     Font loadCustomFont()
     {
-        auto typeface = Typeface::createSystemTypefaceFor(Timmana::Timmana_Regular_ttf, Timmana::Timmana_Regular_ttfSize);
+        auto typeface = Typeface::createSystemTypefaceFor(BinaryData::Timmana_Regular_ttf, BinaryData::Timmana_Regular_ttfSize);
         return Font(typeface);
     }
 };

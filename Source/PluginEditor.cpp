@@ -300,10 +300,6 @@ void SpectralSuiteAudioProcessorEditor::layoutButtons()
     contrastButton.setBounds(421, buttonY, 94, 45);
 
 
-    randomizeButton.setClickingTogglesState(false);
-    randomizeButton.setLookAndFeel(&ssLookAndFeel);
-    randomizeButton.setButtonText("randomize");
-
     randomizeButton.setColour(juce::TextButton::buttonColourId, contrastColor);
     
     if (fxMode == FxMode::scramble)
@@ -318,11 +314,11 @@ void SpectralSuiteAudioProcessorEditor::layoutButtons()
     {
         randomizeButton.setColour(juce::TextButton::buttonColourId, contrastColor);
     }
-    auto x = 421;
-    auto y = 14;
-    auto height = 26;
+    auto x = 512;
+    auto y = 11;
+    auto size = 30;
 
-    randomizeButton.setBounds(x, y, 94, height);
+    randomizeButton.setBounds(x, y, size, size);
     addAndMakeVisible(&randomizeButton);
 }
 

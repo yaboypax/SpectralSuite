@@ -2421,6 +2421,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\cplxd.h" />
     <ClInclude Include="..\..\Source\FFTEffect.h" />
+    <ClInclude Include="..\..\Source\RandomIcon.h" />
     <ClInclude Include="..\..\Source\sincostable.h" />
     <ClInclude Include="..\..\Source\MathConstants.h" />
     <ClInclude Include="..\..\Source\wpFFT.h" />
