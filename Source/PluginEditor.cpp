@@ -62,30 +62,29 @@ void SpectralSuiteAudioProcessorEditor::paint(juce::Graphics& g)
     g.fillRoundedRectangle(bounds.toFloat(), 23);
     bounds.reduce(5, 5);
 
-    if (fxMode == FxMode::scramble)
+    switch (fxMode)
     {
+    case FxMode::scramble:
         fx2.setVisible(true);
         fx3.setVisible(false);
         fx4.setVisible(false);
-
         g.setColour(scrambleColor);
+        break;
 
-    }
-    else if (fxMode == FxMode::smear)
-    {
+    case FxMode::smear:
         fx2.setVisible(false);
         fx3.setVisible(true);
         fx4.setVisible(false);
-
         g.setColour(smearColor);
-    }
-    else if (fxMode == FxMode::contrast)
-    {
+        break;
+
+    case FxMode::contrast:
         fx2.setVisible(false);
         fx3.setVisible(false);
         fx4.setVisible(true);
 
         g.setColour(contrastColor);
+        break;
     }
     g.fillRoundedRectangle(bounds.toFloat(), 23);
 
@@ -296,22 +295,26 @@ void SpectralSuiteAudioProcessorEditor::layoutButtons()
     scrambleButton.setBounds(216, buttonY, 94, 45);
     smearButton.setBounds(316, buttonY, 94, 45);
     contrastButton.setBounds(421, buttonY, 94, 45);
-
-
-    randomizeButton.setColour(juce::TextButton::buttonColourId, contrastColor);
     
-    if (fxMode == FxMode::scramble)
+    switch (fxMode)
     {
+    case FxMode::scramble:
         randomizeButton.setColour(juce::TextButton::buttonColourId, scrambleColor);
-    }
-    else if (fxMode == FxMode::smear)
-    {
+        break;
+
+    case FxMode::smear:
         randomizeButton.setColour(juce::TextButton::buttonColourId, smearColor);
-    }
-    else if (fxMode == FxMode::contrast)
-    {
+        break;
+
+    case FxMode::contrast:
         randomizeButton.setColour(juce::TextButton::buttonColourId, contrastColor);
+        break;
+
+    default:
+        randomizeButton.setColour(juce::TextButton::buttonColourId, contrastColor);
+        break;
     }
+
     auto x = 512;
     auto y = 11;
     auto size = 30;
@@ -446,20 +449,20 @@ void SpectralSuiteAudioProcessorEditor::updateValues()
         if (auto param = processor.apvts.getParameter("scramblingWidth"))
         {
             effectText = juce::String(param->getValue());
-            break;
         }
+        break;
     case FxMode::smear:
         if (auto param = processor.apvts.getParameter("smearingWidth"))
         {
             effectText = juce::String(param->getValue());
-            break;
         }
+        break;
     case FxMode::contrast:
         if (auto param = processor.apvts.getParameter("contrastValue"))
         {
             effectText = juce::String(param->getValue());
-            break;
         }
+        break;
     }
 
     if (auto param = processor.apvts.getParameter("dryWet"))
