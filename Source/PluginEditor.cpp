@@ -294,7 +294,7 @@ void SpectralSuiteAudioProcessorEditor::layoutButtons()
 
     int buttonY = 52;
     scrambleButton.setBounds(216, buttonY, 94, 45);
-    smearButton.setBounds(JUCE_LIVE_CONSTANT(316), buttonY, 94, 45);
+    smearButton.setBounds(319, buttonY, 94, 45);
     contrastButton.setBounds(421, buttonY, 94, 45);
     
     switch (fxMode)
