@@ -173,7 +173,7 @@ void SpectralSuiteAudioProcessorEditor::layoutGainSliders()
     inputGain.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
     inputGain.setPopupDisplayEnabled(false, false, this);
     inputGain.setTextValueSuffix(" inVolume");
-    inputGain.setValue(0.8f);
+
 
     addAndMakeVisible(&inputGain);
 
@@ -183,7 +183,6 @@ void SpectralSuiteAudioProcessorEditor::layoutGainSliders()
     outputGain.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
     outputGain.setPopupDisplayEnabled(false, false, this);
     outputGain.setTextValueSuffix(" outVolume");
-    outputGain.setValue(0.8f);
 
     addAndMakeVisible(&outputGain);
    
@@ -207,7 +206,6 @@ void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
     fx1.setLookAndFeel(&ssLookAndFeel);
     fx1.setSliderStyle(juce::Slider::RotaryVerticalDrag);
     fx1.setRange(0.0, 1.0, 0.01);
-    fx1.setValue(1.0);
     fx1.setColour(juce::Slider::rotarySliderOutlineColourId, juce::Colours::black);
     fx1.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
     fx1.setPopupDisplayEnabled(false, false, this);
@@ -344,7 +342,7 @@ void SpectralSuiteAudioProcessorEditor::buttonClicked(juce::Button* button)
         processor.randomize();
     }
 
-    resized();
+    layoutButtons();
     repaint();
 }
 
