@@ -62,6 +62,8 @@ public:
     void parameterChanged(const juce::String& parameterID, float newValue) override;
     juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
 
+    void randomize();
+
 private:
     //==============================================================================
     unsigned int frameLength=1024;

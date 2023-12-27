@@ -39,6 +39,7 @@ SpectralSuiteAudioProcessorEditor::~SpectralSuiteAudioProcessorEditor()
     outputGain.removeListener(this);
     pitchShift.removeListener(this);
     
+    randomizeButton.removeListener(this);
 
     inputGainAttachment.reset();
     outputGainAttachment.reset();
@@ -191,7 +192,6 @@ void SpectralSuiteAudioProcessorEditor::layoutGainSliders()
     pitchShift.setRange(-24.0f, 24.0f, 0.0f);
     pitchShift.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
     pitchShift.setPopupDisplayEnabled(false, false, this);
-    pitchShift.setValue(1.0f);
 
     addAndMakeVisible(&pitchShift);
 
@@ -218,21 +218,31 @@ void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
     fx2.setSliderStyle(juce::Slider::RotaryVerticalDrag);
     fx2.setRange(0.0, 1.0, 0.01);
     fx2.setSkewFactorFromMidPoint(0.10);
-    fx2.setValue(0.2);
     fx2.setColour(juce::Slider::rotarySliderOutlineColourId, juce::Colours::black);
     fx2.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
     fx2.setPopupDisplayEnabled(false, false, this);
+
+    if (auto param = processor.apvts.getParameter("scramblingWidth"))
+    {
+        fx2.setValue(param->getValue());
+    }
 
     //smear
     addChildComponent(&fx3);
     fx3.setLookAndFeel(&ssLookAndFeel);
     fx3.setSliderStyle(juce::Slider::RotaryVerticalDrag);
     fx3.setRange(0.0, 1.0, 0.01);
-    fx3.setSkewFactorFromMidPoint(0.25);
-    fx3.setValue(0.2);
+    fx3.setSkewFactorFromMidPoint(0.25);;
     fx3.setColour(juce::Slider::rotarySliderOutlineColourId, juce::Colours::black);
     fx3.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
     fx3.setPopupDisplayEnabled(false, false, this);
+
+
+    if (auto param = processor.apvts.getParameter("smearingWidth"))
+    {
+        fx3.setValue(param->getValue());
+    }
+
 
     //contrast
     addChildComponent(&fx4);
@@ -240,10 +250,16 @@ void SpectralSuiteAudioProcessorEditor::layoutFxSliders()
     fx4.setSliderStyle(juce::Slider::RotaryVerticalDrag);
     fx4.setRange(0.0, 1.0, 0.01);
     fx4.setSkewFactor(0.5);
-    fx4.setValue(0.2);
     fx4.setColour(juce::Slider::rotarySliderOutlineColourId, juce::Colours::black);
     fx4.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
     fx4.setPopupDisplayEnabled(false, false, this);
+
+
+    if (auto param = processor.apvts.getParameter("contrastValue"))
+    {
+        fx4.setValue(param->getValue());
+    }
+
 
     fx1.setBounds(231, 119, 105, 105);
     fx2.setBounds(380, 119, 105, 105);
@@ -327,6 +343,10 @@ void SpectralSuiteAudioProcessorEditor::buttonClicked(juce::Button* button)
         fxMode = FxMode::contrast;
         effectText = juce::String(fx4.getValue());
     }
+    else if (button == &randomizeButton)
+    {
+        processor.randomize();
+    }
 
     resized();
     repaint();
@@ -345,6 +365,8 @@ void SpectralSuiteAudioProcessorEditor::addAttachments()
     scrambleButton.addListener(this);
     smearButton.addListener(this);
     contrastButton.addListener(this);
+
+    randomizeButton.addListener(this);
 
     fx1.addListener(this);
     fx2.addListener(this);

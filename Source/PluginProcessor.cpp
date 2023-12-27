@@ -255,9 +255,9 @@ juce::AudioProcessorValueTreeState::ParameterLayout SpectralSuiteAudioProcessor:
     params.push_back(std::make_unique<juce::AudioParameterFloat>("pitchShift", "Pitch Shift", -24.0f, 24.0f, 0.0f));
     params.push_back(std::make_unique<juce::AudioParameterFloat>("dryWet", "Dry/Wet", 0.0f, 1.0f, 1.0f));
 
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("scramblingWidth", "Width", 0.0f, 1.0f, 0.2f));
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("smearingWidth", "Width", 0.0f, 1.0f, 0.2f));
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("contrastValue", "Raise", 0.0f, 1.0f, 0.2f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("scramblingWidth", "Scramble", 0.0f, 1.0f, 0.2f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("smearingWidth", "Smear", 0.0f, 1.0f, 0.2f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("contrastValue", "Contrast", 0.0f, 1.0f, 0.2f));
 
     params.push_back(std::make_unique<juce::AudioParameterBool>("scrambleEnabled", "Scramble On", false));
     params.push_back(std::make_unique<juce::AudioParameterBool>("smearEnabled", "Smear On", false));
@@ -326,3 +326,54 @@ void SpectralSuiteAudioProcessor::parameterChanged(const juce::String& parameter
     }
 }
 
+void SpectralSuiteAudioProcessor::randomize()
+{
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<float> dis(0.0f, 1.0f);
+
+    FxMode effect = static_cast<FxMode>(gen() % 3);
+    float effectValue = dis(gen);
+    float pitchValue = dis(gen);
+
+    std::string enabledParamName, valueParamName;
+
+    switch (effect)
+    {
+    case FxMode::scramble:
+        enabledParamName = "scrambleEnabled";
+        valueParamName = "scramblingWidth";
+        break;
+    case FxMode::smear:
+        enabledParamName = "smearEnabled";
+        valueParamName = "smearingWidth";
+        break;
+    case FxMode::contrast:
+        enabledParamName = "contrastEnabled";
+        valueParamName = "contrastValue";
+        break;
+    }
+
+    if (auto enabledParam = apvts.getParameter(enabledParamName))
+    {
+        enabledParam->beginChangeGesture();
+        enabledParam->setValueNotifyingHost(1.0f);
+        enabledParam->endChangeGesture();
+    }
+
+    if (auto valueParam = apvts.getParameter(valueParamName))
+    {
+        valueParam->beginChangeGesture();
+        valueParam->setValueNotifyingHost(effectValue);
+        valueParam->endChangeGesture();
+    }
+
+    if (auto pitchParam = apvts.getParameter("pitchShift"))
+    {
+        pitchParam->beginChangeGesture();
+        pitchParam->setValueNotifyingHost(pitchValue);
+        pitchParam->endChangeGesture();
+    }
+
+
+}
