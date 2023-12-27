@@ -342,7 +342,7 @@ void SpectralSuiteAudioProcessorEditor::buttonClicked(juce::Button* button)
         processor.randomize();
     }
 
-    layoutButtons();
+    layoutButtons();    
     repaint();
 }
 
@@ -383,52 +383,38 @@ void SpectralSuiteAudioProcessorEditor::loadFxMode()
     if (processor.apvts.getParameter("scrambleEnabled")->getValue() == 1.f)
     {
         fxMode = FxMode::scramble;
-        effectText = juce::String(fx2.getValue());
     }
     else if (processor.apvts.getParameter("smearEnabled")->getValue() == 1.f)
     {
         fxMode = FxMode::smear;
-        effectText = juce::String(fx3.getValue());
     }
     else if (processor.apvts.getParameter("contrastEnabled")->getValue() == 1.f)
     {
         fxMode = FxMode::contrast;
-        effectText = juce::String(fx4.getValue());
     }
+    updateValues();
     repaint();
 }
 
 void SpectralSuiteAudioProcessorEditor::sliderValueChanged(juce::Slider* slider)
 {
-    if (slider == &fx1)
-    {
-        dryWetText = juce::String(slider->getValue());
-        repaint();
-    }
-
-    if (slider == &fx2 || slider == &fx3 || slider == &fx4)
-    {
-        effectText = juce::String(slider->getValue());
-        repaint();
-    }
-
     if (slider == &inputGain)
     {
         inText = juce::String(slider->getValue());
-        repaint();
     }
 
     if (slider == &outputGain)
     {
         outText = juce::String(slider->getValue());
-        repaint();
     }
 
     if (slider == &pitchShift)
     {
         pitchText = juce::String(slider->getValue());
-        repaint();
     }
+
+    updateValues();
+    repaint();
 }
 
 void SpectralSuiteAudioProcessorEditor::sliderDragEnded(juce::Slider* slider)
@@ -449,5 +435,35 @@ void SpectralSuiteAudioProcessorEditor::sliderDragEnded(juce::Slider* slider)
     {
         pitchText = "pitch";
         repaint();
+    }
+}
+
+void SpectralSuiteAudioProcessorEditor::updateValues()
+{
+    switch (fxMode)
+    {
+    case FxMode::scramble:
+        if (auto param = processor.apvts.getParameter("scramblingWidth"))
+        {
+            effectText = juce::String(param->getValue());
+            break;
+        }
+    case FxMode::smear:
+        if (auto param = processor.apvts.getParameter("smearingWidth"))
+        {
+            effectText = juce::String(param->getValue());
+            break;
+        }
+    case FxMode::contrast:
+        if (auto param = processor.apvts.getParameter("contrastValue"))
+        {
+            effectText = juce::String(param->getValue());
+            break;
+        }
+    }
+
+    if (auto param = processor.apvts.getParameter("dryWet"))
+    {
+        dryWetText = juce::String(param->getValue());
     }
 }

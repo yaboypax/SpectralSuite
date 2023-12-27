@@ -38,6 +38,7 @@ public:
 
     void addAttachments();
     void loadFxMode();
+    void updateValues();
     
 
 private:
@@ -72,7 +73,6 @@ private:
     std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> contrastButtonAttachment;
 
     const juce::Colour subtleBlack = juce::Colour(0xFF404040);
-
     const juce::Colour contrastColor = juce::Colour(0xFF88928A);
     const juce::Colour smearColor = juce::Colour(0xFFB496BC);
     const juce::Colour scrambleColor = juce::Colour(0xFFF4F4D0);
