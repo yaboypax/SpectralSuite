@@ -132,8 +132,8 @@ void SpectralSuiteAudioProcessorEditor::displayText(juce::Graphics& g)
 
     //in out sliders
     auto inOutYMargin = 30;
-    auto inOutXMargin = 3;
-    auto scalar = 1.2f;
+    auto inOutXMargin = 10;
+    auto scalar = 2;
     if (inputGain.isMouseOverOrDragging())
     {
         g.drawText(inText, inputGain.getX() - inOutXMargin, inputGain.getY() + inOutYMargin, inputGain.getWidth() * scalar, inputGain.getHeight(), juce::Justification::centredBottom);
@@ -153,14 +153,15 @@ void SpectralSuiteAudioProcessorEditor::displayText(juce::Graphics& g)
     }
 
     //pitch slider
-    auto pitchTextMargin = inOutYMargin * 2;
+    auto pitchTextXMargin = 55;
+    auto pitchTextYMargin = 8;
     if (pitchShift.isMouseOverOrDragging())
     {
-        g.drawText(pitchText, pitchShift.getX() - pitchTextMargin, pitchShift.getY(), pitchShift.getWidth(), pitchShift.getHeight() * scalar, juce::Justification::centredLeft);
+        g.drawText(pitchText, pitchShift.getX() - pitchTextXMargin, pitchShift.getY() - pitchTextYMargin, pitchShift.getWidth(), pitchShift.getHeight() * scalar, juce::Justification::centredLeft);
     }
     else
     {
-        g.drawText("pitch", pitchShift.getX() - pitchTextMargin, pitchShift.getY(), pitchShift.getWidth(), pitchShift.getHeight() * scalar, juce::Justification::centredLeft);
+        g.drawText("pitch", pitchShift.getX() - pitchTextXMargin, pitchShift.getY() - pitchTextYMargin, pitchShift.getWidth(), pitchShift.getHeight() * scalar, juce::Justification::centredLeft);
     }
 }
 
@@ -168,7 +169,7 @@ void SpectralSuiteAudioProcessorEditor::layoutGainSliders()
 {
     inputGain.setSliderStyle(juce::Slider::LinearVertical);
     inputGain.setLookAndFeel(&ssLookAndFeel);
-    inputGain.setRange(0.0f, 1.5f, 1.0f);
+    inputGain.setRange(-20.0f, 10.f, 0.f);
     inputGain.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
     inputGain.setPopupDisplayEnabled(false, false, this);
     inputGain.setTextValueSuffix(" inVolume");
@@ -178,7 +179,7 @@ void SpectralSuiteAudioProcessorEditor::layoutGainSliders()
 
     outputGain.setSliderStyle(juce::Slider::LinearVertical);
     outputGain.setLookAndFeel(&ssLookAndFeel);
-    outputGain.setRange(0.0f, 1.5f, 1.0f);
+    outputGain.setRange(-20.0f, 10.f, 0.0f);
     outputGain.setTextBoxStyle(juce::Slider::NoTextBox, false, 90, 0);
     outputGain.setPopupDisplayEnabled(false, false, this);
     outputGain.setTextValueSuffix(" outVolume");
@@ -293,7 +294,7 @@ void SpectralSuiteAudioProcessorEditor::layoutButtons()
 
     int buttonY = 52;
     scrambleButton.setBounds(216, buttonY, 94, 45);
-    smearButton.setBounds(316, buttonY, 94, 45);
+    smearButton.setBounds(JUCE_LIVE_CONSTANT(316), buttonY, 94, 45);
     contrastButton.setBounds(421, buttonY, 94, 45);
     
     switch (fxMode)
@@ -403,17 +404,17 @@ void SpectralSuiteAudioProcessorEditor::sliderValueChanged(juce::Slider* slider)
 {
     if (slider == &inputGain)
     {
-        inText = juce::String(slider->getValue());
+        inText = juce::String(slider->getValue(), 2);
     }
 
     if (slider == &outputGain)
     {
-        outText = juce::String(slider->getValue());
+        outText = juce::String(slider->getValue(), 2);
     }
 
     if (slider == &pitchShift)
     {
-        pitchText = juce::String(slider->getValue());
+        pitchText = juce::String(slider->getValue(), 2);
     }
 
     updateValues();

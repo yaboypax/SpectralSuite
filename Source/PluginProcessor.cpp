@@ -178,7 +178,7 @@ void SpectralSuiteAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
     juce::AudioBuffer<float> dryBuffer(buffer.getNumChannels(), buffer.getNumSamples());
 
     //input gain
-    buffer.applyGain(inputGain);
+    buffer.applyGain(Decibels::decibelsToGain(inputGain));
 
     for (int channel = 0; channel < buffer.getNumChannels(); ++channel)
     {
@@ -198,7 +198,7 @@ void SpectralSuiteAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
     dryWet.setWetMixProportion(wetCoefficient);
 
     // output gain
-    buffer.applyGain(outputGain);
+    buffer.applyGain(Decibels::decibelsToGain(outputGain));
 }
 
 
@@ -247,8 +247,8 @@ juce::AudioProcessorValueTreeState::ParameterLayout SpectralSuiteAudioProcessor:
 {
     std::vector<std::unique_ptr<juce::RangedAudioParameter>> params;
 
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("inputGain", "Input Gain", 0.0f, 1.5f, 1.0f));
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("outputGain", "Output Gain", 0.0f, 1.5f, 1.0f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("inputGain", "Input Gain", -20.0f, 10.f, 0.0f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("outputGain", "Output Gain", -20.0f, 10.f, 0.0f));
 
     params.push_back(std::make_unique<juce::AudioParameterFloat>("pitchShift", "Pitch Shift", -24.0f, 24.0f, 0.0f));
     params.push_back(std::make_unique<juce::AudioParameterFloat>("dryWet", "Dry/Wet", 0.0f, 1.0f, 1.0f));
