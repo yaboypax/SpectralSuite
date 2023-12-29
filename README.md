@@ -2,7 +2,7 @@ SpectralSuite is a low-latency implimentation of a few of my personal favorite F
 
 This project was written in C++ using the JUCE framework and fftw3 for the DSP math. 
 
-# Installing Juce
+# Installing JUCE
 ## You can obtain JUCE by:
 
 - Cloning the JUCE repository: `git clone https://github.com/juce-framework/JUCE.git`
