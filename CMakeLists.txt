@@ -74,7 +74,7 @@ target_link_libraries(SpectralSuite
 
 # add Binary Data
 juce_add_binary_data(BinaryData SOURCES
-    Resource/Timmana-Regular.tff
+    Resource/Timmana-Regular.ttf
     Resource/dice.png
 )
 
