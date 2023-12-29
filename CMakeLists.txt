@@ -2,7 +2,11 @@ cmake_minimum_required(VERSION 3.15)
 
 project(SpectralSuite VERSION 0.0.1)
 
-find_package(JUCE CONFIG REQUIRED)
+# Specify the JUCE location (JUCE_DIR "/path/to/JUCE")
+set(JUCE_DIR "../JUCE")
+
+# Add the JUCE module
+add_subdirectory(${JUCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/JUCE)
 
 # If you have access to the VST2 sdk
 # juce_set_vst2_sdk_path("/path/to/VST2_SDK")
