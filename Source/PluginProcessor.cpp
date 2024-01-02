@@ -172,9 +172,6 @@ bool SpectralSuiteAudioProcessor::isBusesLayoutSupported (const BusesLayout& lay
 
 void SpectralSuiteAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
-    int fftSize = FFT_LEN;
-    int blockSize = fftSize / 2;
-
     juce::AudioBuffer<float> dryBuffer(buffer.getNumChannels(), buffer.getNumSamples());
 
     //input gain
@@ -325,14 +322,13 @@ void SpectralSuiteAudioProcessor::parameterChanged(const juce::String& parameter
 }
 
 void SpectralSuiteAudioProcessor::randomize() const
-{
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<float> dis(0.0f, 1.0f);
+{;
+    juce::Random random;
+    int randomInt = random.nextInt();
+    FxMode effect = static_cast<FxMode>(randomInt % 3);
 
-    FxMode effect = static_cast<FxMode>(gen() % 3);
-    float effectValue = dis(gen);
-    float pitchValue = dis(gen);
+    float effectValue = random.nextFloat();
+    float pitchValue = random.nextFloat();
 
     std::string enabledParamName, valueParamName;
 

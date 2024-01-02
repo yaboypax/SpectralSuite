@@ -154,14 +154,16 @@ void FFTEffect::findPeaksAndRegionsOfInfluence()
 void FFTEffect::scramble(fftw_complex* complexData, int dataSize, double width)
 {
     int maxOffset = static_cast<int>(dataSize * width);
-    static auto g = getRandom();
+
+    juce::Random random;
+    int randomInt = random.nextInt();
 
     std::vector<double> scrambledReal(dataSize);
     std::vector<double> scrambledImag(dataSize);
 
     for (int i = 0; i < dataSize; i++)
     {
-        int offset = g() % (2 * maxOffset + 1) - maxOffset;
+        int offset = randomInt % (2 * maxOffset + 1) - maxOffset;
         int newPos = i + offset;
 
         if (newPos < 0) newPos = 0;

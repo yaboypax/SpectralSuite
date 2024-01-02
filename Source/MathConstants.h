@@ -207,11 +207,17 @@ inline void fromStdComplex(std::complex<double> src, fftw_complex& dst) {
 	dst[1] = src.imag();
 }
 
-inline static std::mt19937 getRandom()
+inline static uint32_t PCG_Hash(uint32_t input)
 {
-	std::random_device rd;
-	static std::mt19937 g(rd());
-	return g;
+	uint32_t state = input * 747796405u + 2891336453u;
+	uint32_t word = ((state >> ((state >> 28u) + 4u)) ^ state) * 277803737u;
+	return (word >> 22u) ^ word;
+}
+
+inline static float randomFloat(uint32_t& seed)
+{
+	seed = PCG_Hash(seed);
+	return (float)seed / (float)UINT32_MAX;
 }
 
 inline long prbs32(long x)
