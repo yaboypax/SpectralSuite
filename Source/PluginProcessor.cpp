@@ -324,7 +324,7 @@ void SpectralSuiteAudioProcessor::parameterChanged(const juce::String& parameter
     }
 }
 
-void SpectralSuiteAudioProcessor::randomize()
+void SpectralSuiteAudioProcessor::randomize() const
 {
     std::random_device rd;
     std::mt19937 gen(rd());

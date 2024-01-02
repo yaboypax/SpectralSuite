@@ -62,7 +62,7 @@ public:
     void parameterChanged(const juce::String& parameterID, float newValue) override;
     juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
 
-    void randomize();
+    void randomize() const;
 
 private:
     //==============================================================================

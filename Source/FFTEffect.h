@@ -12,7 +12,6 @@
 
 #include "JuceHeader.h"
 #include "wpFFT.h"
-#include "sincostable.h"
 
 struct BinData
 {
@@ -62,7 +61,6 @@ public:
 
 
 private:
-    SinCosTable<12> g_sincos_table;
     std::vector<double> newMagnitudes;
     PhaseVocoder phaseVocoder;
     FxMode m_fxMode;
