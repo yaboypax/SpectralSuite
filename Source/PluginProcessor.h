@@ -12,7 +12,7 @@
 
 #include <JuceHeader.h>
 #include <juce_dsp/juce_dsp.h>
-#include "FFTEffect.h"
+#include "Engine/FFTEffect.h"
 
 #include <string>
 #include <fstream>

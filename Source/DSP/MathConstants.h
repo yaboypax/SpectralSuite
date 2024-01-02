@@ -13,7 +13,7 @@
 #include <vector>
 #include <complex>
 #include <random>
-#include "DSP/fftw3.h"
+#include "fftw3.h"
 
 
 const double kTwoPi = 6.283185307179586;

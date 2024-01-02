@@ -4,8 +4,8 @@
 
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
-#include "SSLookAndFeel.h"
-#include "RandomIcon.h"
+#include "GUI/SSLookAndFeel.h"
+#include "GUI/RandomIcon.h"
 
 
 class SpectralSuiteAudioProcessorEditor  : public juce::AudioProcessorEditor, public juce::Button::Listener, public juce::Slider::Listener

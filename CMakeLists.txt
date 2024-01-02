@@ -32,15 +32,15 @@ target_sources(SpectralSuite
     Source/PluginProcessor.h
     Source/PluginEditor.cpp
     Source/PluginEditor.h
-    Source/FFTEffect.cpp
-    Source/FFTEffect.h
-    Source/fftw3.h
-    Source/MathConstants.h
-    Source/RandomIcon.h
-    Source/SSLookAndFeel.h
-    Source/SSLookAndFeel.cpp
-    Source/wpFFT.cpp
-    Source/wpFFT.h
+    Source/Engine/FFTEffect.cpp
+    Source/Engine/FFTEffect.h
+    Source/DSP/fftw3.h
+    Source/DSP/MathConstants.h
+    Source/DSP/wpFFT.cpp
+    Source/DSP/wpFFT.h
+    Source/GUI/RandomIcon.h
+    Source/GUI/SSLookAndFeel.h
+    Source/GUI/SSLookAndFeel.cpp
 )
 
 # Link with JUCE modules

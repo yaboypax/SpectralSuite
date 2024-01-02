@@ -11,7 +11,7 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "DSP/wpFFT.h"
+#include "../DSP/wpFFT.h"
 
 struct BinData
 {
