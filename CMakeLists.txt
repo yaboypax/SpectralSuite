@@ -23,6 +23,14 @@ juce_add_plugin(SpectralSuite
 
 juce_generate_juce_header(SpectralSuite)
 
+# Check if the system is macOS and Homebrew was used to install fftw
+# I could only get find_package to work correctly for Windows
+if(APPLE)
+    # Set the path and version to FFTW3 for macOS
+    set(FFTW3_DIR "/usr/local/Cellar/fftw/3.3.10_1")
+    set(CMAKE_PREFIX_PATH ${FFTW3_DIR};${CMAKE_PREFIX_PATH})
+endif()
+
 find_package(FFTW3 REQUIRED)
 
 # Define your project sources
@@ -69,9 +77,10 @@ juce_add_binary_data(BinaryData SOURCES
 
 
 # Setup the VST3
-juce_generate_juce_header(SpectralSuite)
 target_compile_definitions(SpectralSuite PRIVATE
     JUCE_VST3_CAN_REPLACE_VST2=0
     JUCE_WEB_BROWSER=0 # Set to 1 if you need a web browser
     JUCE_USE_CURL=0    # Set to 1 if you need CURL
+    JUCE_DISPLAY_SPLASH_SCREEN=0
 )
+
