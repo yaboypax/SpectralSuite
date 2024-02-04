@@ -13,17 +13,21 @@ Make sure to set the `JUCE_DIR` variable in the CMakeLists.txt to the path where
 # Installing FFTW3
 
 ## Windows
-Download FFTW3:
 
-Visit the FFTW download page.
-Download the latest version of FFTW3 for Windows (look for a file named like fftw-3.x.x-dllNN.zip, where NN is your architecture, e.g., 32 or 64).
-Extract the Files:
+Install vcpkg: If you haven't already installed vcpkg on your system, you can do so by cloning the vcpkg repository from GitHub and then running the bootstrap script. On Windows, this typically looks like:
 
-Extract the downloaded .zip file to a known location on your computer.
-Include in Your Project:
 
-You can either include FFTW3 in your system's PATH or specify the path directly in your project's build configuration.
-To include in the PATH, copy the .dll files from the extracted folder to a directory in your system's PATH.
+git clone https://github.com/Microsoft/vcpkg.git
+.\vcpkg\bootstrap-vcpkg.bat
+
+
+Install FFTW3: Now, you can install FFTW3 using vcpkg. Run the following command:
+
+
+./vcpkg install fftw3
+
+This will download and install FFTW3 and its dependencies. If you need the FFTW3 library with single precision, you might use fftw3f, or for long double precision, fftw3l. For parallel FFTW (with MPI), you can use fftw3-mpi.
+
 ## macOS
 Using Homebrew:
 
