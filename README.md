@@ -18,6 +18,9 @@ Install vcpkg: If you haven't already installed vcpkg on your system, you can do
 
 
 git clone https://github.com/Microsoft/vcpkg.git
+
+then run:
+
 .\vcpkg\bootstrap-vcpkg.bat
 
 
