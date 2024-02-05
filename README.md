@@ -26,10 +26,15 @@ then run:
 
 Install FFTW3: Now, you can install FFTW3 using vcpkg. Run the following command:
 
-
 ./vcpkg install fftw3
 
 This will download and install FFTW3 and its dependencies. If you need the FFTW3 library with single precision, you might use fftw3f, or for long double precision, fftw3l. For parallel FFTW (with MPI), you can use fftw3-mpi.
+
+When building with cmake it might be necessary to build with the command:
+
+cmake -DCMAKE_PREFIX_PATH="C:\path\to\vcpkg\packages\fftw3_x64-windows" ..
+
+...or wherever vcpkg placed your FFTW3Config.cmake file.
 
 ## macOS
 Using Homebrew:
