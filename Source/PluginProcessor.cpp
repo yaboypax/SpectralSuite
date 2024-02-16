@@ -170,33 +170,33 @@ bool SpectralSuiteAudioProcessor::isBusesLayoutSupported (const BusesLayout& lay
 }
 #endif
 
-void SpectralSuiteAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
-{
-    juce::AudioBuffer<float> dryBuffer(buffer.getNumChannels(), buffer.getNumSamples());
-
-    //input gain
-    buffer.applyGain(Decibels::decibelsToGain(inputGain));
-
-    for (int channel = 0; channel < buffer.getNumChannels(); ++channel)
+    void SpectralSuiteAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
     {
-        dryBuffer.copyFrom(channel, 0, buffer, channel, 0, buffer.getNumSamples());
+        juce::AudioBuffer<float> dryBuffer(buffer.getNumChannels(), buffer.getNumSamples());
 
-        for (int i = 0; i < buffer.getNumSamples(); ++i)
+        //input gain
+        buffer.applyGain(Decibels::decibelsToGain(inputGain));
+
+        for (int channel = 0; channel < buffer.getNumChannels(); ++channel)
         {
-            double sample = buffer.getSample(channel, i);
-            double output = fftEffect[channel].process(sample);
-            buffer.setSample(channel, i, output);
+            dryBuffer.copyFrom(channel, 0, buffer, channel, 0, buffer.getNumSamples());
+
+            for (int i = 0; i < buffer.getNumSamples(); ++i)
+            {
+                double sample = buffer.getSample(channel, i);
+                double output = fftEffect[channel].process(sample);
+                buffer.setSample(channel, i, output);
+            }
         }
+
+        // dry wet
+        dryWet.pushDrySamples(dryBuffer);
+        dryWet.mixWetSamples(buffer);
+        dryWet.setWetMixProportion(wetCoefficient);
+
+        // output gain
+        buffer.applyGain(Decibels::decibelsToGain(outputGain));
     }
-
-    // dry wet
-    dryWet.pushDrySamples(dryBuffer);
-    dryWet.mixWetSamples(buffer);
-    dryWet.setWetMixProportion(wetCoefficient);
-
-    // output gain
-    buffer.applyGain(Decibels::decibelsToGain(outputGain));
-}
 
 
 

@@ -1,0 +1,82 @@
+{
+  "_buildCommand2" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : false,
+    "targets" : null
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "d74917ce358a83a7d141463d7fe9918de164d926ea6b67a1509beacabaf90e59"
+    },
+    {
+      "guid" : "d74917ce358a83a7d141463d7fe9918d590813d2f2c0803bf974849eb5b2bbab"
+    },
+    {
+      "guid" : "d74917ce358a83a7d141463d7fe9918d32cd734a593c87bf92497c5e7b4bce29"
+    },
+    {
+      "guid" : "d74917ce358a83a7d141463d7fe9918d82b22f0054e6a6ff2c3f97d4434ca3cf"
+    },
+    {
+      "guid" : "d74917ce358a83a7d141463d7fe9918dcb389f2f3881e21fd169fa3e5295aa13"
+    },
+    {
+      "guid" : "d74917ce358a83a7d141463d7fe9918d2b03b2bfbb170115af47d8b71c0130ff"
+    },
+    {
+      "guid" : "d74917ce358a83a7d141463d7fe9918dbf1e7aeee5abcd9ba7bf961da50b2dec"
+    },
+    {
+      "guid" : "d74917ce358a83a7d141463d7fe9918de6c0e79330d0b681e1e76e9c6886908f"
+    },
+    {
+      "guid" : "d74917ce358a83a7d141463d7fe9918db6bf878dea18dcb133cf0a2431d4b4d3"
+    }
+  ],
+  "containerPath" : "/Users/raf-dev/workspace/repos/SpectralSuite/build/SpectralSuite.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "macosx",
+      "sdk" : "macosx13.0",
+      "sdkVariant" : "macos",
+      "supportedArchitectures" : [
+        "arm64e",
+        "arm64",
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "",
+      "buildProductsPath" : "",
+      "derivedDataPath" : "/Users/raf-dev/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/raf-dev/Library/Developer/Xcode/DerivedData/SpectralSuite-aatcwgjtbhksxxbehkatzosmusnl/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/raf-dev/Library/Developer/Xcode/DerivedData/SpectralSuite-aatcwgjtbhksxxbehkatzosmusnl/Index.noindex/PrecompiledHeaders",
+      "pchPath" : ""
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

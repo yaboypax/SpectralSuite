@@ -89,4 +89,6 @@ private:
     std::vector<double> outputBuff;
     double windowCorrection;
     unsigned int outputBufferLength;
+    
+    std::vector<std::complex<double>> m_complexDataStd;
 };

@@ -1,0 +1,11 @@
+Target dependency graph (4 targets)
+ZERO_CHECK in SpectralSuite, no dependencies
+BinaryData in SpectralSuite, depends on:
+ZERO_CHECK in SpectralSuite (explicit)
+SpectralSuite in SpectralSuite, depends on:
+BinaryData in SpectralSuite (explicit)
+ZERO_CHECK in SpectralSuite (explicit)
+SpectralSuite_VST3 in SpectralSuite, depends on:
+SpectralSuite in SpectralSuite (explicit)
+BinaryData in SpectralSuite (explicit)
+ZERO_CHECK in SpectralSuite (explicit)

@@ -82,5 +82,6 @@ target_compile_definitions(SpectralSuite PRIVATE
     JUCE_WEB_BROWSER=0 # Set to 1 if you need a web browser
     JUCE_USE_CURL=0    # Set to 1 if you need CURL
     JUCE_DISPLAY_SPLASH_SCREEN=0
+    JUCE_FORCE_USE_LEGACY_PARAM_IDS=1
 )
 

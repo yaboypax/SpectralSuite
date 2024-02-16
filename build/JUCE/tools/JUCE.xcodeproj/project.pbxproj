@@ -1,0 +1,1136 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		3A69C514129847D5B0E64D8E /* install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AF75BA17A4084A84B0A7B699 /* Build configuration list for PBXAggregateTarget "install" */;
+			buildPhases = (
+				93426DA6A4AC2C2AC9CE883C /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				FF9103DAA03E4CC5B1096567 /* PBXTargetDependency */,
+			);
+			name = install;
+			productName = install;
+		};
+		ED2A146F4C754FF1838A9946 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 33FCE072924844A2B8F9DBFC /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				C1E270870CEB2DD202BE564D /* Generate CMakeFiles/ZERO_CHECK */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		FF407AC928964153B9B99090 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 071DA8C4D9CE4C9EAB0A32DF /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				2C27982089DF374BB894921A /* Generate CMakeFiles/ALL_BUILD */,
+			);
+			dependencies = (
+				A53350611E79487D9E2641FC /* PBXTargetDependency */,
+				B518F1CC13B44B4DB81B6E69 /* PBXTargetDependency */,
+				AEE46404F3E549D3871577A7 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		0E73443467DE48BE865DC899 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/Cocoa.framework */ = {isa = PBXBuildFile; fileRef = 4C57E4C73CED4306A6A31413 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/Cocoa.framework */; };
+		1A3B749F458C424EA1C9076E /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juceaide/Main.cpp */ = {isa = PBXBuildFile; fileRef = E3DC8E6D6B864F169817AE5F /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juceaide/Main.cpp */; };
+		2110EE9C11BA4112AF3CC1D9 /* /Users/raf-dev/workspace/repos/JUCE/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 307D6286DA60440F82E99F82 /* /Users/raf-dev/workspace/repos/JUCE/CMakeLists.txt */; };
+		2F9CF056207340D7B86025B3 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/QuartzCore.framework */ = {isa = PBXBuildFile; fileRef = A3655779930A499292BAF05B /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/QuartzCore.framework */; };
+		5A84B2BDC2614287B6A3C4DF /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_gui_basics/juce_gui_basics.mm */ = {isa = PBXBuildFile; fileRef = 09B06C837EFD45169B3CAEF3 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_gui_basics/juce_gui_basics.mm */; };
+		787362F9CB3345E791481A20 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/IOKit.framework */ = {isa = PBXBuildFile; fileRef = E85CDDF9C9F54ED78624CB0E /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/IOKit.framework */; };
+		7D836671197040D183C12B05 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/Foundation.framework */ = {isa = PBXBuildFile; fileRef = FF9FA39C08B945DAA9AF1B90 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/Foundation.framework */; };
+		815CCC76B1914F3DBDEA4582 /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juceaide/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = DDC34B75B73A4F3CA8446739 /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juceaide/CMakeLists.txt */; };
+		A020A1A41A854B0F8ED72810 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_data_structures/juce_data_structures.mm */ = {isa = PBXBuildFile; fileRef = 01958FC7F07A46A884BDACD4 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_data_structures/juce_data_structures.mm */; };
+		B2EB8E5E9F5046B58ADCD8F3 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_core/juce_core.mm */ = {isa = PBXBuildFile; fileRef = 2F42E4CB29A1440E91484BDF /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_core/juce_core.mm */; };
+		BE4877C7C0A14BA380C26D60 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_graphics/juce_graphics.mm */ = {isa = PBXBuildFile; fileRef = 55B6F7A33E424BF694516843 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_graphics/juce_graphics.mm */; };
+		D8182AC667D449DEA8A53F0B /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_events/juce_events.mm */ = {isa = PBXBuildFile; fileRef = 3FF840DCDBB8437787694371 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_events/juce_events.mm */; };
+		F102C4728D6844749345AD4B /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juce_build_tools/juce_build_tools.cpp */ = {isa = PBXBuildFile; fileRef = 93005D4826534684B8A25D38 /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juce_build_tools/juce_build_tools.cpp */; };
+		F44DDDDE37324BEEB39B308C /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_audio_plugin_client/LV2/juce_LV2TurtleDumpProgram.cpp */ = {isa = PBXBuildFile; fileRef = FBC21B2D875B43C79F4DAE1F /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_audio_plugin_client/LV2/juce_LV2TurtleDumpProgram.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		3CE6EBB8406B43E2BC0C80CB /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		7062113E4DFA4BE29B901945 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		8584A9206C6140749A1966A0 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		F29A962E1D3D4608B5208CEF /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		029BABE710B049128F7349E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B4CA927EE0A4EF0BBB5BCFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7158DD0D33524072B79CF2CD;
+			remoteInfo = juceaide;
+		};
+		0CCDD079C06544138379CDD2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B4CA927EE0A4EF0BBB5BCFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED2A146F4C754FF1838A9946;
+			remoteInfo = ZERO_CHECK;
+		};
+		620146C9E97E4CEF8533B8C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B4CA927EE0A4EF0BBB5BCFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 774EEA249F3F4C60A5B198B1;
+			remoteInfo = juce_lv2_helper;
+		};
+		73D433D3C05C4911A7426D16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B4CA927EE0A4EF0BBB5BCFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF407AC928964153B9B99090;
+			remoteInfo = ALL_BUILD;
+		};
+		B112BAE2A9AB4011A476C439 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B4CA927EE0A4EF0BBB5BCFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED2A146F4C754FF1838A9946;
+			remoteInfo = ZERO_CHECK;
+		};
+		DB6176CBAE744CFE93942D8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B4CA927EE0A4EF0BBB5BCFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED2A146F4C754FF1838A9946;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01958FC7F07A46A884BDACD4 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_data_structures/juce_data_structures.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = juce_data_structures.mm; path = modules/juce_data_structures/juce_data_structures.mm; sourceTree = SOURCE_ROOT; };
+		07F637B2190444EDB14610F8 /* /Users/raf-dev/workspace/repos/JUCE/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		09B06C837EFD45169B3CAEF3 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_gui_basics/juce_gui_basics.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = juce_gui_basics.mm; path = modules/juce_gui_basics/juce_gui_basics.mm; sourceTree = SOURCE_ROOT; };
+		2F42E4CB29A1440E91484BDF /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_core/juce_core.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = juce_core.mm; path = modules/juce_core/juce_core.mm; sourceTree = SOURCE_ROOT; };
+		307D6286DA60440F82E99F82 /* /Users/raf-dev/workspace/repos/JUCE/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		3FF840DCDBB8437787694371 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_events/juce_events.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = juce_events.mm; path = modules/juce_events/juce_events.mm; sourceTree = SOURCE_ROOT; };
+		4499D1AD007C4893A52D0CE5 /* juceaide */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = juceaide; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C57E4C73CED4306A6A31413 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/Cocoa.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		55B6F7A33E424BF694516843 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_graphics/juce_graphics.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = juce_graphics.mm; path = modules/juce_graphics/juce_graphics.mm; sourceTree = SOURCE_ROOT; };
+		93005D4826534684B8A25D38 /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juce_build_tools/juce_build_tools.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = juce_build_tools.cpp; path = extras/Build/juce_build_tools/juce_build_tools.cpp; sourceTree = SOURCE_ROOT; };
+		A1B046A929224472B8DA9951 /* juce_lv2_helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = juce_lv2_helper; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3655779930A499292BAF05B /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/QuartzCore.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		DDC34B75B73A4F3CA8446739 /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juceaide/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = extras/Build/juceaide/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		E3DC8E6D6B864F169817AE5F /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juceaide/Main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Main.cpp; path = extras/Build/juceaide/Main.cpp; sourceTree = SOURCE_ROOT; };
+		E85CDDF9C9F54ED78624CB0E /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/IOKit.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
+		FBC21B2D875B43C79F4DAE1F /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_audio_plugin_client/LV2/juce_LV2TurtleDumpProgram.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = juce_LV2TurtleDumpProgram.cpp; path = modules/juce_audio_plugin_client/LV2/juce_LV2TurtleDumpProgram.cpp; sourceTree = SOURCE_ROOT; };
+		FF9FA39C08B945DAA9AF1B90 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/Foundation.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2FDDC64B029C4485B0104A61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		375F3AF893A649F49018304A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		321731CC288D4A6EBFC82296 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3655779930A499292BAF05B /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/QuartzCore.framework */,
+				4C57E4C73CED4306A6A31413 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/Cocoa.framework */,
+				FF9FA39C08B945DAA9AF1B90 /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/Foundation.framework */,
+				E85CDDF9C9F54ED78624CB0E /* /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/IOKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D999F57BF5A43AC8F518E95 /* juceaide */ = {
+			isa = PBXGroup;
+			children = (
+				C6B07AAD44B9401F85102ED4 /* Source Files */,
+				DDC34B75B73A4F3CA8446739 /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juceaide/CMakeLists.txt */,
+			);
+			name = juceaide;
+			sourceTree = "<group>";
+		};
+		A277C00E9496424EB02856A9 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		AB80559FBD7143C08B067602 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				A277C00E9496424EB02856A9 /* CMake Rules */,
+				07F637B2190444EDB14610F8 /* /Users/raf-dev/workspace/repos/JUCE/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		ABA30E897F5745EEAA410438 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1B046A929224472B8DA9951 /* juce_lv2_helper */,
+				4499D1AD007C4893A52D0CE5 /* juceaide */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B0621B7ED6994759BD1F898B /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				FBC21B2D875B43C79F4DAE1F /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_audio_plugin_client/LV2/juce_LV2TurtleDumpProgram.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		C31E241426E64EBEBB54EB04 /* juce_lv2_helper */ = {
+			isa = PBXGroup;
+			children = (
+				B0621B7ED6994759BD1F898B /* Source Files */,
+				307D6286DA60440F82E99F82 /* /Users/raf-dev/workspace/repos/JUCE/CMakeLists.txt */,
+			);
+			name = juce_lv2_helper;
+			sourceTree = "<group>";
+		};
+		C6B07AAD44B9401F85102ED4 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				93005D4826534684B8A25D38 /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juce_build_tools/juce_build_tools.cpp */,
+				E3DC8E6D6B864F169817AE5F /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juceaide/Main.cpp */,
+				2F42E4CB29A1440E91484BDF /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_core/juce_core.mm */,
+				01958FC7F07A46A884BDACD4 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_data_structures/juce_data_structures.mm */,
+				3FF840DCDBB8437787694371 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_events/juce_events.mm */,
+				55B6F7A33E424BF694516843 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_graphics/juce_graphics.mm */,
+				09B06C837EFD45169B3CAEF3 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_gui_basics/juce_gui_basics.mm */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		D0CEE6BB96CD4762871DCBB7 = {
+			isa = PBXGroup;
+			children = (
+				C31E241426E64EBEBB54EB04 /* juce_lv2_helper */,
+				AB80559FBD7143C08B067602 /* ALL_BUILD */,
+				4D999F57BF5A43AC8F518E95 /* juceaide */,
+				ABA30E897F5745EEAA410438 /* Products */,
+				321731CC288D4A6EBFC82296 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7158DD0D33524072B79CF2CD /* juceaide */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A63F5352A1E6437F92BDA5EB /* Build configuration list for PBXNativeTarget "juceaide" */;
+			buildPhases = (
+				2D9C5055870549D0934BBB05 /* Sources */,
+				375F3AF893A649F49018304A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD6EEEFE121F4278B9AA1899 /* PBXTargetDependency */,
+			);
+			name = juceaide;
+			productName = juceaide;
+			productReference = 4499D1AD007C4893A52D0CE5 /* juceaide */;
+			productType = "com.apple.product-type.tool";
+		};
+		774EEA249F3F4C60A5B198B1 /* juce_lv2_helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71DD33BF46934C399DF43C83 /* Build configuration list for PBXNativeTarget "juce_lv2_helper" */;
+			buildPhases = (
+				C05FC215ED5948749F3809C4 /* Sources */,
+				2FDDC64B029C4485B0104A61 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01B453D384874EB7953F4C3C /* PBXTargetDependency */,
+			);
+			name = juce_lv2_helper;
+			productName = juce_lv2_helper;
+			productReference = A1B046A929224472B8DA9951 /* juce_lv2_helper */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0B4CA927EE0A4EF0BBB5BCFC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1410;
+			};
+			buildConfigurationList = CDCE31FB9BBF4F3E9FB4AB5E /* Build configuration list for PBXProject "JUCE" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				F29A962E1D3D4608B5208CEF /* Debug */,
+				8584A9206C6140749A1966A0 /* Release */,
+				7062113E4DFA4BE29B901945 /* MinSizeRel */,
+				3CE6EBB8406B43E2BC0C80CB /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = D0CEE6BB96CD4762871DCBB7;
+			projectDirPath = "/Users/raf-dev/workspace/repos/JUCE";
+			projectRoot = "";
+			targets = (
+				FF407AC928964153B9B99090 /* ALL_BUILD */,
+				ED2A146F4C754FF1838A9946 /* ZERO_CHECK */,
+				3A69C514129847D5B0E64D8E /* install */,
+				774EEA249F3F4C60A5B198B1 /* juce_lv2_helper */,
+				7158DD0D33524072B79CF2CD /* juceaide */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C27982089DF374BB894921A /* Generate CMakeFiles/ALL_BUILD */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ALL_BUILD";
+			outputPaths = (
+"/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/CMakeFiles/ALL_BUILD"			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools
+  echo Build\\ all\\ projects
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		3C0110FC8322DE7E50886E21 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		87AF4882E018677E2624B544 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		93426DA6A4AC2C2AC9CE883C /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools
+  /usr/local/Cellar/cmake/3.26.3/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools
+  /usr/local/Cellar/cmake/3.26.3/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools
+  /usr/local/Cellar/cmake/3.26.3/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools
+  /usr/local/Cellar/cmake/3.26.3/bin/cmake -DBUILD_TYPE=$CONFIGURATION$EFFECTIVE_PLATFORM_NAME -P cmake_install.cmake
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		9B50530E35CC49C82C2FACCF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		C1E270870CEB2DD202BE564D /* Generate CMakeFiles/ZERO_CHECK */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ZERO_CHECK";
+			outputPaths = (
+"/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/CMakeFiles/ZERO_CHECK"			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools
+  make -f /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools
+  make -f /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"MinSizeRel\"; then :
+  cd /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools
+  make -f /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"RelWithDebInfo\"; then :
+  cd /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools
+  make -f /Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/CMakeScripts/ReRunCMake.make
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D9C5055870549D0934BBB05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F102C4728D6844749345AD4B /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juce_build_tools/juce_build_tools.cpp */,
+				1A3B749F458C424EA1C9076E /* /Users/raf-dev/workspace/repos/JUCE/extras/Build/juceaide/Main.cpp */,
+				B2EB8E5E9F5046B58ADCD8F3 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_core/juce_core.mm */,
+				A020A1A41A854B0F8ED72810 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_data_structures/juce_data_structures.mm */,
+				D8182AC667D449DEA8A53F0B /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_events/juce_events.mm */,
+				BE4877C7C0A14BA380C26D60 /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_graphics/juce_graphics.mm */,
+				5A84B2BDC2614287B6A3C4DF /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_gui_basics/juce_gui_basics.mm */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C05FC215ED5948749F3809C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F44DDDDE37324BEEB39B308C /* /Users/raf-dev/workspace/repos/JUCE/modules/juce_audio_plugin_client/LV2/juce_LV2TurtleDumpProgram.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01B453D384874EB7953F4C3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED2A146F4C754FF1838A9946 /* ZERO_CHECK */;
+			targetProxy = B112BAE2A9AB4011A476C439 /* PBXContainerItemProxy */;
+		};
+		A53350611E79487D9E2641FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 774EEA249F3F4C60A5B198B1 /* juce_lv2_helper */;
+			targetProxy = 620146C9E97E4CEF8533B8C6 /* PBXContainerItemProxy */;
+		};
+		AD6EEEFE121F4278B9AA1899 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED2A146F4C754FF1838A9946 /* ZERO_CHECK */;
+			targetProxy = 0CCDD079C06544138379CDD2 /* PBXContainerItemProxy */;
+		};
+		AEE46404F3E549D3871577A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED2A146F4C754FF1838A9946 /* ZERO_CHECK */;
+			targetProxy = DB6176CBAE744CFE93942D8E /* PBXContainerItemProxy */;
+		};
+		B518F1CC13B44B4DB81B6E69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7158DD0D33524072B79CF2CD /* juceaide */;
+			targetProxy = 029BABE710B049128F7349E1 /* PBXContainerItemProxy */;
+		};
+		FF9103DAA03E4CC5B1096567 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF407AC928964153B9B99090 /* ALL_BUILD */;
+			targetProxy = 73D433D3C05C4911A7426D16 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D0121B3F5144374BA058185 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		1F0168A0648E44FCAAD8908C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		2042AAA3622346FE836A6B13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/build";
+			};
+			name = Release;
+		};
+		2531F55B44FD4104AB7DA403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		2A00B213D97E496C93269464 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		5902481EC1BA4B35A82E7CD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk;
+				SYMROOT = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/build";
+			};
+			name = Debug;
+		};
+		5EBD8AAFB4E543B7A2B36125 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/MinSizeRel";
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "'-std=c++17' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = juce_lv2_helper;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/build/juce_lv2_helper.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		645A321DBC304E5CB36F2267 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/Release";
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "'-std=c++17' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = juce_lv2_helper;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/build/juce_lv2_helper.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		660882AE73BB4DD498A8E622 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		6707073DD9F9427189F0D5BA /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		75B5AEC7A8594F4F96019FA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		7D4FED3F9F15451CB94F89A7 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/extras/Build/juceaide/juceaide_artefacts/MinSizeRel";
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'JUCE_STANDALONE_APPLICATION=1'","'JUCE_DISABLE_JUCE_VERSION_PRINTING=1'","'JUCE_USE_CURL=0'","'JUCE_MODULE_AVAILABLE_juce_build_tools=1'","'JUCE_MODULE_AVAILABLE_juce_gui_basics=1'","'JUCE_MODULE_AVAILABLE_juce_graphics=1'","'JUCE_MODULE_AVAILABLE_juce_events=1'","'JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1'","'NDEBUG=1'","'_NDEBUG=1'","'JUCE_MODULE_AVAILABLE_juce_core=1'","'JUCE_MODULE_AVAILABLE_juce_data_structures=1'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/extras/Build/juceaide/juceaide_artefacts/JuceLibraryCode","/Users/raf-dev/workspace/repos/JUCE/extras/Build","/Users/raf-dev/workspace/repos/JUCE/modules","$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "'-std=c++17' -Wall -Wshadow-all -Wshorten-64-to-32 -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wconversion -Wsign-compare -Wint-conversion -Wconditional-uninitialized -Wconstant-conversion -Wsign-conversion -Wbool-conversion -Wextra-semi -Wunreachable-code -Wcast-align -Wshift-sign-overflow -Wmissing-prototypes -Wnullable-to-nonnull-conversion -Wno-ignored-qualifiers -Wswitch-enum -Wpedantic -Wdeprecated -Wzero-as-null-pointer-constant -Wunused-private-field -Woverloaded-virtual -Wreorder -Winconsistent-missing-destructor-override ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-weak_framework Metal","-weak_framework MetalKit","-Xlinker -framework -Xlinker QuartzCore","-Xlinker -framework -Xlinker Cocoa","-Xlinker -framework -Xlinker Foundation","-Xlinker -framework -Xlinker IOKit","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = juceaide;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/build/juceaide.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		80F6F241590945AEBE002169 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/extras/Build/juceaide/juceaide_artefacts/Release";
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'JUCE_STANDALONE_APPLICATION=1'","'JUCE_DISABLE_JUCE_VERSION_PRINTING=1'","'JUCE_USE_CURL=0'","'JUCE_MODULE_AVAILABLE_juce_build_tools=1'","'JUCE_MODULE_AVAILABLE_juce_gui_basics=1'","'JUCE_MODULE_AVAILABLE_juce_graphics=1'","'JUCE_MODULE_AVAILABLE_juce_events=1'","'JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1'","'NDEBUG=1'","'_NDEBUG=1'","'JUCE_MODULE_AVAILABLE_juce_core=1'","'JUCE_MODULE_AVAILABLE_juce_data_structures=1'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/extras/Build/juceaide/juceaide_artefacts/JuceLibraryCode","/Users/raf-dev/workspace/repos/JUCE/extras/Build","/Users/raf-dev/workspace/repos/JUCE/modules","$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "'-std=c++17'     -flto -Wall -Wshadow-all -Wshorten-64-to-32 -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wconversion -Wsign-compare -Wint-conversion -Wconditional-uninitialized -Wconstant-conversion -Wsign-conversion -Wbool-conversion -Wextra-semi -Wunreachable-code -Wcast-align -Wshift-sign-overflow -Wmissing-prototypes -Wnullable-to-nonnull-conversion -Wno-ignored-qualifiers -Wswitch-enum -Wpedantic -Wdeprecated -Wzero-as-null-pointer-constant -Wunused-private-field -Woverloaded-virtual -Wreorder -Winconsistent-missing-destructor-override ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-weak_framework Metal","-weak_framework MetalKit","-Xlinker -framework -Xlinker QuartzCore","-Xlinker -framework -Xlinker Cocoa","-Xlinker -framework -Xlinker Foundation","-Xlinker -framework -Xlinker IOKit","-flto","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = juceaide;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/build/juceaide.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		8A6E8885E30D416EB354A5F3 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		8D27E2F55AFA47FF9F9B759F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		A123FC8B865D43B8B0CC44DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/extras/Build/juceaide/juceaide_artefacts/Debug";
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'JUCE_STANDALONE_APPLICATION=1'","'JUCE_DISABLE_JUCE_VERSION_PRINTING=1'","'JUCE_USE_CURL=0'","'JUCE_MODULE_AVAILABLE_juce_build_tools=1'","'JUCE_MODULE_AVAILABLE_juce_gui_basics=1'","'JUCE_MODULE_AVAILABLE_juce_graphics=1'","'JUCE_MODULE_AVAILABLE_juce_events=1'","'JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1'","'DEBUG=1'","'_DEBUG=1'","'JUCE_MODULE_AVAILABLE_juce_core=1'","'JUCE_MODULE_AVAILABLE_juce_data_structures=1'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/extras/Build/juceaide/juceaide_artefacts/JuceLibraryCode","/Users/raf-dev/workspace/repos/JUCE/extras/Build","/Users/raf-dev/workspace/repos/JUCE/modules","$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "'-std=c++17'        -Wall -Wshadow-all -Wshorten-64-to-32 -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wconversion -Wsign-compare -Wint-conversion -Wconditional-uninitialized -Wconstant-conversion -Wsign-conversion -Wbool-conversion -Wextra-semi -Wunreachable-code -Wcast-align -Wshift-sign-overflow -Wmissing-prototypes -Wnullable-to-nonnull-conversion -Wno-ignored-qualifiers -Wswitch-enum -Wpedantic -Wdeprecated -Wzero-as-null-pointer-constant -Wunused-private-field -Woverloaded-virtual -Wreorder -Winconsistent-missing-destructor-override ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-weak_framework Metal","-weak_framework MetalKit","-Xlinker -framework -Xlinker QuartzCore","-Xlinker -framework -Xlinker Cocoa","-Xlinker -framework -Xlinker Foundation","-Xlinker -framework -Xlinker IOKit","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = juceaide;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/build/juceaide.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		B66C25378D864A7F907B1360 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/build";
+			};
+			name = MinSizeRel;
+		};
+		C9AA7BBFA56D441182F808D8 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/RelWithDebInfo";
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "'-std=c++17' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = juce_lv2_helper;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/build/juce_lv2_helper.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		CEDB13CA0F0142DD8BEB43CF /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		D8DC0105905B4E7F8BCC1EA0 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/extras/Build/juceaide/juceaide_artefacts/RelWithDebInfo";
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'JUCE_STANDALONE_APPLICATION=1'","'JUCE_DISABLE_JUCE_VERSION_PRINTING=1'","'JUCE_USE_CURL=0'","'JUCE_MODULE_AVAILABLE_juce_build_tools=1'","'JUCE_MODULE_AVAILABLE_juce_gui_basics=1'","'JUCE_MODULE_AVAILABLE_juce_graphics=1'","'JUCE_MODULE_AVAILABLE_juce_events=1'","'JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1'","'NDEBUG=1'","'_NDEBUG=1'","'JUCE_MODULE_AVAILABLE_juce_core=1'","'JUCE_MODULE_AVAILABLE_juce_data_structures=1'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/extras/Build/juceaide/juceaide_artefacts/JuceLibraryCode","/Users/raf-dev/workspace/repos/JUCE/extras/Build","/Users/raf-dev/workspace/repos/JUCE/modules","$(inherited)");
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "'-std=c++17' -Wall -Wshadow-all -Wshorten-64-to-32 -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wconversion -Wsign-compare -Wint-conversion -Wconditional-uninitialized -Wconstant-conversion -Wsign-conversion -Wbool-conversion -Wextra-semi -Wunreachable-code -Wcast-align -Wshift-sign-overflow -Wmissing-prototypes -Wnullable-to-nonnull-conversion -Wno-ignored-qualifiers -Wswitch-enum -Wpedantic -Wdeprecated -Wzero-as-null-pointer-constant -Wunused-private-field -Woverloaded-virtual -Wreorder -Winconsistent-missing-destructor-override ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","-weak_framework Metal","-weak_framework MetalKit","-Xlinker -framework -Xlinker QuartzCore","-Xlinker -framework -Xlinker Cocoa","-Xlinker -framework -Xlinker Foundation","-Xlinker -framework -Xlinker IOKit","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = juceaide;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/build/juceaide.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		E95ED8E2AD104C4FAD48BAC4 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		EFB41D7AA0194E43BF5AA617 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYMROOT = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/build";
+			};
+			name = RelWithDebInfo;
+		};
+		F1BF28597D3C4422B3F88311 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/Debug";
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "'-std=c++17' ";
+				OTHER_LDFLAGS = (" -Wl,-search_paths_first -Wl,-headerpad_max_install_names","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = juce_lv2_helper;
+				SECTORDER_FLAGS = "";
+				TARGET_TEMP_DIR = "/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/tools/build/juce_lv2_helper.build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		FC81744A764441B7A5ACA501 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		071DA8C4D9CE4C9EAB0A32DF /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2531F55B44FD4104AB7DA403 /* Debug */,
+				0D0121B3F5144374BA058185 /* Release */,
+				CEDB13CA0F0142DD8BEB43CF /* MinSizeRel */,
+				6707073DD9F9427189F0D5BA /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		33FCE072924844A2B8F9DBFC /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D27E2F55AFA47FF9F9B759F /* Debug */,
+				FC81744A764441B7A5ACA501 /* Release */,
+				E95ED8E2AD104C4FAD48BAC4 /* MinSizeRel */,
+				8A6E8885E30D416EB354A5F3 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		71DD33BF46934C399DF43C83 /* Build configuration list for PBXNativeTarget "juce_lv2_helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1BF28597D3C4422B3F88311 /* Debug */,
+				645A321DBC304E5CB36F2267 /* Release */,
+				5EBD8AAFB4E543B7A2B36125 /* MinSizeRel */,
+				C9AA7BBFA56D441182F808D8 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A63F5352A1E6437F92BDA5EB /* Build configuration list for PBXNativeTarget "juceaide" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A123FC8B865D43B8B0CC44DE /* Debug */,
+				80F6F241590945AEBE002169 /* Release */,
+				7D4FED3F9F15451CB94F89A7 /* MinSizeRel */,
+				D8DC0105905B4E7F8BCC1EA0 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AF75BA17A4084A84B0A7B699 /* Build configuration list for PBXAggregateTarget "install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F0168A0648E44FCAAD8908C /* Debug */,
+				75B5AEC7A8594F4F96019FA2 /* Release */,
+				2A00B213D97E496C93269464 /* MinSizeRel */,
+				660882AE73BB4DD498A8E622 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CDCE31FB9BBF4F3E9FB4AB5E /* Build configuration list for PBXProject "JUCE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5902481EC1BA4B35A82E7CD8 /* Debug */,
+				2042AAA3622346FE836A6B13 /* Release */,
+				B66C25378D864A7F907B1360 /* MinSizeRel */,
+				EFB41D7AA0194E43BF5AA617 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0B4CA927EE0A4EF0BBB5BCFC /* Project object */;
+}

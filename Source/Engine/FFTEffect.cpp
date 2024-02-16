@@ -244,47 +244,50 @@ void FFTEffect::smear(fftw_complex* complexData, int dataSize, double width)
     }
 }
 
-void FFTEffect::contrast(fftw_complex* complexData, int dataSize, float raiseVal)
-{
-    double averageMagnitude = 0;
-    double originalPower = 0;
+void FFTEffect::contrast(fftw_complex* complexData, int dataSize, float raiseVal) {
+    double averageMagnitude = 0.0;
+    double originalPower = 0.0;
+    std::vector<double> magnitudes(dataSize);
 
-    std::vector<std::complex<double>> complexDataStd(dataSize);
-
-    for (int i = 0; i < dataSize; i++)
-    {
-        complexDataStd[i] = toStdComplex(complexData[i]);
-        averageMagnitude += std::abs(complexDataStd[i]);
-        originalPower += std::norm(complexDataStd[i]);
+    // First Pass: Calculate average magnitude and original power
+    for (int i = 0; i < dataSize; i++) {
+        double realPart = complexData[i][0];
+        double imagPart = complexData[i][1];
+        double magnitude = std::sqrt(realPart * realPart + imagPart * imagPart);
+        magnitudes[i] = magnitude;
+        averageMagnitude += magnitude;
+        originalPower += realPart * realPart + imagPart * imagPart;
     }
     averageMagnitude /= dataSize;
 
     double raiseValPlusOne = 1 + raiseVal;
 
-    for (int i = 0; i < dataSize; i++)
-    {
-        double magnitude = std::abs(complexDataStd[i]);
-        double phase = std::arg(complexDataStd[i]);
-
+    // Second Pass: Apply contrast effect
+    for (int i = 0; i < dataSize; i++) {
+        double magnitude = magnitudes[i];
+        double phase = std::atan2(complexData[i][1], complexData[i][0]);
 
         double magnitudeDifference = magnitude - averageMagnitude;
         double newMagnitude = averageMagnitude + copysign(pow(std::abs(magnitudeDifference), raiseValPlusOne), magnitudeDifference);
 
-        complexDataStd[i] = std::polar(newMagnitude, phase);
+        complexData[i][0] = newMagnitude * std::cos(phase); // Real part
+        complexData[i][1] = newMagnitude * std::sin(phase); // Imaginary part
     }
 
-    double modifiedPower = 0;
-    for (auto& bin : complexDataStd) {
-        modifiedPower += std::norm(bin);
+    double modifiedPower = 0.0;
+    for (int i = 0; i < dataSize; i++) {
+        modifiedPower += complexData[i][0] * complexData[i][0] + complexData[i][1] * complexData[i][1];
     }
 
-    double normalizationFactor = sqrt(originalPower / modifiedPower);
-    for (int i = 0; i < dataSize; i++)
-    {
-        complexDataStd[i] *= normalizationFactor;
-        fromStdComplex(complexDataStd[i], complexData[i]);
+    double normalizationFactor = (modifiedPower > 0) ? std::sqrt(originalPower / modifiedPower) : 1.0;
+
+    // Third Pass: Normalize to conserve energy
+    for (int i = 0; i < dataSize; i++) {
+        complexData[i][0] *= normalizationFactor;
+        complexData[i][1] *= normalizationFactor;
     }
 }
+
 
 void FFTEffect::setFxMode(FxMode inFxMode)
 {

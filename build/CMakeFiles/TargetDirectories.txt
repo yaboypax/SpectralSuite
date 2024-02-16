@@ -1,0 +1,15 @@
+/Users/raf-dev/workspace/repos/SpectralSuite/build/CMakeFiles/SpectralSuite.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/CMakeFiles/SpectralSuite_All.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/CMakeFiles/SpectralSuite_Standalone.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/CMakeFiles/SpectralSuite_AU.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/CMakeFiles/SpectralSuite_VST3.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/CMakeFiles/BinaryData.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/CMakeFiles/install.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/CMakeFiles/ALL_BUILD.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/CMakeFiles/ZERO_CHECK.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/CMakeFiles/install.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/CMakeFiles/ALL_BUILD.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/CMakeFiles/ZERO_CHECK.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/modules/CMakeFiles/install.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/extras/Build/CMakeFiles/install.dir
+/Users/raf-dev/workspace/repos/SpectralSuite/build/JUCE/extras/Build/juceaide/CMakeFiles/install.dir
